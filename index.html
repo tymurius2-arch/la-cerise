@@ -166,6 +166,11 @@ header.solid .lang button{color:var(--muted)}
 .hero h1 em{font-style:italic;font-weight:500;color:#ffd5dc}
 .hero p.tag{font-size:clamp(1.05rem,2.2vw,1.3rem);max-width:560px;opacity:.95}
 .hero .eyebrow{color:#ffc4cd}
+.notice{display:inline-flex;align-items:center;gap:.6rem;max-width:620px;margin-bottom:1.4rem;padding:.6rem 1rem;border-radius:14px;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);font-size:.95rem;font-weight:500}
+.notice[hidden]{display:none}
+.notice b{color:#ffc4cd}
+.owner-link{opacity:.45;font-size:.8rem}
+.owner-link:hover{opacity:1}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:2rem 0 2.6rem}
 .badges{display:flex;flex-wrap:wrap;gap:12px}
 .badge{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);padding:.6rem 1rem;border-radius:14px;font-size:.85rem}
@@ -387,6 +392,7 @@ footer.site a:hover{color:#fff}
 <section class="hero">
   <div class="hero-bg" role="img" aria-label="La salle de La Cerise"></div>
   <div class="wrap hero-inner">
+    <div class="notice" id="notice" hidden><b>✦</b><span></span></div>
     <div class="eyebrow" data-i18n="hero.eyebrow">Schiltigheim · Près du vieux Schilick</div>
     <h1>La <em>Cerise</em></h1>
     <p class="tag" data-i18n="hero.tag">Ribs fondants, tartes flambées croustillantes et vins d'Alsace — servis avec le sourire sur notre terrasse ombragée.</p>
@@ -518,7 +524,7 @@ footer.site a:hover{color:#fff}
       <a href="mailto:info@laceriseschilick.fr">info@laceriseschilick.fr</a>
       <a href="https://facebook.com/la.cerise.restaurant" target="_blank" rel="noopener">Facebook</a>
     </div>
-    <div>© <span id="year"></span> La Cerise · Schiltigheim</div>
+    <div>© <span id="year"></span> La Cerise · Schiltigheim · <a class="owner-link" href="admin.html" rel="nofollow">Espace propriétaire</a></div>
   </div>
 </footer>
 
@@ -534,6 +540,8 @@ footer.site a:hover{color:#fff}
   <button class="lb-next" aria-label="Suivant">›</button>
 </div>
 
+<script src="firebase-config.js"></script>
+<script src="menu-data.js"></script>
 <script>
 const I18N = {
   fr: {},
@@ -606,162 +614,7 @@ const FR = {
 };
 
 // [name, price, description?, chip?]
-const MENU = [
-  {tab:"food", groups:[
-    {g:"starters", items:[
-      ["Salade mixte","11 €","Salade verte, emmental, cervelas"],
-      ["Salade César","12 €","Salade verte, poulet, emmental, parmesan, tomates, croûtons"],
-      ["Salade de truite saumonée aux agrumes","13 €","Salade verte, truite, oranges, citrons, oignons, croûtons"],
-      ["Gaspacho et son toast de chèvre miel","7 €"],
-      ["Beignets de calmars, sauce tartare maison","9 €"],
-      ["Ardoise de charcuteries","8,5 €","Coppa, jambon italien, jambon blanc, chorizo"],
-      ["Ardoise de fromages","9 €","4 variétés, suivant l'humeur du chef"]
-    ]},
-    {g:"ribs", items:[
-      ["Ribs classic BBQ miel","22,5 €",null,"star"],
-      ["Ribs BBQ piquant","22,5 €"],
-      ["Ribs sauce crème ail et persil","22,5 €"],
-      ["Ribs moutarde à l'ancienne","22,5 €"],
-      ["Ribs sauce curry","22,5 €"],
-      ["Ribs sauce crème munster","23 €"],
-      ["Ribs sauce crème roquefort","23 €"]
-    ]},
-    {g:"mains", items:[
-      ["Onglet de bœuf maturé vintage (250 g)","24 €","Sauce au choix : beurre maître d'hôtel, crème champignons, munster ou roquefort"],
-      ["Tartare de bœuf coupé au couteau","19,5 €","Aubrac ou Salers suivant arrivage"],
-      ["Cordon bleu de poulet (min. 300 g)","22,5 €","Sauce crème champignons, munster ou roquefort"],
-      ["Gambas rouges d'Argentine grillées (7 pièces)","22 €"],
-      ["Fish & chips de cabillaud","19,5 €"],
-      ["Joues de porc cuites au bouillon, sauce","19 €"],
-      ["Aubergine rôtie, crème de ricotta, duo de tomates","18,5 €"],
-      ["Salade César","18 €","Salade verte, poulet, emmental, parmesan, tomates, croûtons"],
-      ["Salade mixte","17,5 €","Salade verte, emmental, cervelas"],
-      ["Beignets de calmars, sauce tartare maison","16 €"],
-      ["Club sandwich à l'effiloché de ribs","15 €","Effiloché de porc, fromage, oignons, salade, cornichons, frites"],
-      ["Currywurst","13,9 €"],
-      ["Gaspacho et son toast de chèvre miel","13 €"]
-    ]},
-    {g:"sides", items:[
-      ["Frites · Salade de pommes de terre · Salade verte · Chou",""],
-      ["Supplément garniture","3,5 €"]
-    ]},
-    {g:"kids", price:"12 €", items:[
-      ["Aiguillettes de poulet panées, frites, 1 boule de glace au choix",""]
-    ]}
-  ]},
-  {tab:"flamm", groups:[
-    {g:"savoury", items:[
-      ["Traditionnelle","9 €","Crème, oignons, lardons","star"],
-      ["Gratinée","10 €","Crème, oignons, lardons, emmental"],
-      ["Forestière","10 €","Crème, oignons, lardons, champignons"],
-      ["Ail ciboulette","10 €","Crème, oignons, lardons, ciboulette, ail"],
-      ["Forestière gratinée","11 €","Crème, oignons, lardons, champignons, emmental"],
-      ["Légumes","11 €","Crème, oignons, légumes"],
-      ["Munster","12 €","Crème, oignons, lardons, munster"],
-      ["Supplément salade verte","3,5 €"]
-    ]},
-    {g:"sweet", items:[
-      ["Griottes","12 €",null,"star"],
-      ["Griottes choco","12,5 €"],
-      ["Myrtilles","12 €"],
-      ["Banane choco","12 €"]
-    ]}
-  ]},
-  {tab:"desserts", groups:[
-    {g:"desserts", items:[
-      ["Mousse au chocolat","7,5 €"],
-      ["Charlotte aux fraises","7,7 €"],
-      ["Crème brûlée","6 €"],
-      ["Salade de fruits maison","6,5 €",null,"house"],
-      ["Café gourmand","8,5 €"],
-      ["Irish coffee","9 €"]
-    ]},
-    {g:"ice", items:[
-      ["1 boule","2,6 €","Vanille, café, chocolat, citron, fraise, cerise, framboise"],
-      ["2 boules","5,2 €"],
-      ["3 boules","7,3 €"],
-      ["Chocolat liégeois","8,2 €"],
-      ["Café liégeois","8,2 €"],
-      ["Colonel","9,5 €"],
-      ["Framboise arrosée","9,5 €"]
-    ]}
-  ]},
-  {tab:"drinks", groups:[
-    {g:"beers", items:[
-      ["Meteor Pils 25 / 50 cl","3,5 / 6,2 €"],
-      ["Meteor Cerise 25 / 50 cl","4,5 / 8,2 €",null,"star"],
-      ["Desperados 33 cl","5,5 €"],
-      ["Picon bière 25 / 50 cl","4 / 7,5 €"],
-      ["Cynar bière 25 / 50 cl","4 / 7,5 €"],
-      ["Panaché 25 cl","3,2 €"],
-      ["Monaco 25 cl","3,5 €"]
-    ]},
-    {g:"cocktails", items:[
-      ["Apérol spritz","9 €","Apérol, crémant, eau gazeuse"],
-      ["Campari spritz","9 €","Campari, crémant, eau gazeuse"],
-      ["Hugo","9 €","Liqueur de sureau, crémant, menthe, citron vert"],
-      ["Mojito","9 €","Rhum, citron vert, menthe, sucre, eau gazeuse"],
-      ["Jus de jungle","9,5 €","Gin, pisang ambon, orange, ananas, citron"],
-      ["Gin tonic","8,5 €"],
-      ["Lillet blanc / rosé tonic","8 €"],
-      ["Mojito sans alcool","7 €"]
-    ]},
-    {g:"apero", items:[
-      ["Crémant 12 cl","5,5 €"],["Kir royal 12 cl","6 €"],["Kir vin blanc 12 cl","5,5 €"],
-      ["Porto 6 cl","5,5 €"],["Martini 6 cl","6 €"],["Baileys · Get 27 · Amaretto 6 cl","6 €"],["Ricard 2 cl","2,8 €"]
-    ]},
-    {g:"spirits", items:[
-      ["Liqueur de griottes maison 4 cl","5 €",null,"house"],
-      ["Eaux-de-vie d'Alsace 4 cl","6,3 €","Marc de gewurztraminer, poire williams, framboise, mirabelle, kirsch"],
-      ["Gin Gordon's · Rhum Havana 3 ans · Vodka · Jägermeister 4 cl","7 €"],
-      ["Whisky Jack Daniel's 4 cl","7,5 €"],
-      ["Rhum Diplomático Reserva 4 cl","8,7 €"],
-      ["Cognac Hennessy / Lheraud / Rémy Martin VSOP","8 – 9,5 €"],
-      ["Whisky Fuji single grain 4 cl","12,5 €"]
-    ]},
-    {g:"shots", items:[
-      ["Madeleine","3 €"],["Mexican vert","4 €","Tequila, pisang ambon, citron"],["Kamikaze","4 €","Vodka, Cointreau, citron vert"],["B-52","4 €","Kahlúa, Baileys, Cointreau"]
-    ]},
-    {g:"softs", items:[
-      ["Coca-Cola / Zero / Cherry 33 cl","3,8 €"],["Fuze Tea 25 cl · Orangina 25 cl","3,8 €"],["Jus de fruit 20 cl","3,8 €","Orange, pomme, tomate, ananas"],
-      ["Perrier 33 cl","3,8 €"],["Diabolo 20 cl","3,3 €","Menthe, grenadine, griottes"],["Carola 0,5 l / 1 l","3,5 / 5,7 €"],
-      ["Schweppes 20 cl","2,2 €"],["Limonade 20 cl","2 €"],["Sirop à l'eau 20 cl","1,7 €"]
-    ]},
-    {g:"coffee", items:[
-      ["Espresso","2,2 €"],["Double espresso","3,9 €"],["Grand café","3 €"],["Cappuccino","3,8 €"],["Café viennois","4 €"],["Thé / infusion","2 €"]
-    ]}
-  ]},
-  {tab:"wines", groups:[
-    {g:"alsace", items:[
-      ["Riesling — Cave de Turckheim","4,3 € / 23 €","12 cl / 75 cl"],
-      ["Veilleur de nuit — Cave de Turckheim","4,7 € / 24,5 €","12 cl / 75 cl"],
-      ["Pinot noir réserve — Cave de Turckheim","5 € / 25 €","12 cl / 75 cl"],
-      ["Gewurztraminer réserve — Cave de Turckheim","27 €","75 cl"]
-    ]},
-    {g:"bubbles", items:[
-      ["Crémant d'Alsace St. Odile","5,5 € / 32 €","12 cl / 75 cl"],
-      ["Prosecco Velodoro extra dry","28 €","75 cl"],
-      ["Crémant d'Alsace Prestige Muré","44 €","75 cl"]
-    ]},
-    {g:"red", items:[
-      ["IGP Gard — Cuvée des Chartreux","3,7 € / 12 €","12 cl / 50 cl"],
-      ["Côtes du Rhône bio — Famille Perrin Réserve","4,7 € / 24 €","12 cl / 75 cl"],
-      ["Brouilly — Domaine Chevalier Métrat","5,8 € / 33 €","12 cl / 75 cl"],
-      ["Languedoc — Abracadabra, Le Chemin des Rêves","31 €","75 cl"],
-      ["Côtes de Bourg — Château Le Clos du Notaire","32 €","75 cl"],
-      ["Vacqueyras — Vieux Clocher","32 €","75 cl"],
-      ["Mercurey vieilles vignes — Tupinier Bautista","47 €","75 cl"]
-    ]},
-    {g:"rose", items:[
-      ["IGP Gard — Cuvée des Chartreux","3,7 € / 12 €","12 cl / 50 cl"],
-      ["Coteaux d'Aix — Château Pigoudet Première","4,5 € / 23 €","12 cl / 75 cl"],
-      ["IGP Île de Beauté — San Pieru","5 € / 25 €","12 cl / 75 cl"]
-    ]},
-    {g:"white", items:[
-      ["Gaillac sec — Château Clément Termes","4,2 € / 22 €","12 cl / 75 cl"]
-    ]}
-  ]}
-];
+let MENU = window.LC_MENU_DEFAULT;
 
 const PH = "https://cdn.thefork.com/tf-lab/image/upload/";
 // Local photos come from guests' reviews on Google Maps; the others from TheFork.
@@ -798,6 +651,19 @@ function applyLang(){
   renderMenu(); renderHours();
 }
 
+const esc = v => String(v ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+
+// Hooks used by cloud.js when the owner's version of the menu / notice is loaded from Firebase.
+window.LC = {
+  setMenu(m){ MENU = m; if (!MENU.some(x => x.tab === curTab)) curTab = MENU[0].tab; renderMenu(); },
+  setNotice(info){
+    const el = document.getElementById("notice");
+    if (!info || !info.show || !info.text) { el.hidden = true; return; }
+    el.querySelector("span").textContent = info.text;
+    el.hidden = false;
+  }
+};
+
 let curTab = "food";
 function renderMenu(){
   const tabs = document.getElementById("tabs"), panels = document.getElementById("panels");
@@ -812,9 +678,9 @@ function renderMenu(){
     const p = document.createElement("div");
     p.className = "menu-panel" + (sec.tab === curTab ? " on" : "");
     p.innerHTML = '<div class="menu-groups">' + sec.groups.map(gr =>
-      `<div class="group"><h3>${T("g." + gr.g)}${gr.price ? `<small>${gr.price}</small>` : ""}</h3>` +
-      gr.items.map(([n, pr, d, c]) =>
-        `<div class="dish"><div class="dish-row"><span class="dish-name">${n}${c ? `<span class="chip">${T("chip." + c)}</span>` : ""}</span>${pr ? `<span class="dish-dots"></span><span class="dish-price">${pr}</span>` : ""}</div>${d ? `<div class="dish-desc">${d}</div>` : ""}</div>`
+      `<div class="group"><h3>${esc(T("g." + gr.g) || gr.g)}${gr.price ? `<small>${esc(gr.price)}</small>` : ""}</h3>` +
+      gr.items.map(({n, p: pr, d, c}) =>
+        `<div class="dish"><div class="dish-row"><span class="dish-name">${esc(n)}${c && FR["chip." + c] ? `<span class="chip">${T("chip." + c)}</span>` : ""}</span>${pr ? `<span class="dish-dots"></span><span class="dish-price">${esc(pr)}</span>` : ""}</div>${d ? `<div class="dish-desc">${esc(d)}</div>` : ""}</div>`
       ).join("") + "</div>"
     ).join("") + "</div>";
     panels.appendChild(p);
@@ -918,5 +784,6 @@ document.getElementById("year").textContent = new Date().getFullYear();
 applyLang();
 setInterval(renderHours, 60000);
 </script>
+<script type="module" src="cloud.js"></script>
 </body>
 </html>

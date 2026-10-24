@@ -1,0 +1,48 @@
+// Firestore security rules for La Cerise.
+// INVITE_CODE is replaced by the secret code from the owner's invite link when the rules
+// are pasted into the Firebase console. Never commit the real code to this public repo.
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function ownerPath() { return /databases/$(database)/documents/site/owner; }
+    function isOwner() {
+      return signedIn() && exists(ownerPath()) && get(ownerPath()).data.uid == request.auth.uid;
+    }
+
+    // The owner: created once, by the person who opens the invite link. Never changed afterwards.
+    match /site/owner {
+      allow get: if isOwner();
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['uid', 'email', 'name', 'invite', 'claimedAt'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.invite == 'INVITE_CODE';
+      allow update, delete: if false;
+    }
+
+    // Menu and notice: everyone can read, only the owner can change.
+    match /site/{docId} {
+      allow read: if docId != 'owner';
+      allow write: if docId != 'owner' && isOwner();
+    }
+
+    // Daily counters: a visitor can only add 1 to a counter; only the owner can read them.
+    match /stats/{day} {
+      function step(f, before) {
+        let n = request.resource.data.get(f, 0);
+        return n is int && (n == before || n == before + 1);
+      }
+      function counters() { return ['views', 'visitors', 'book', 'call']; }
+      allow read: if isOwner();
+      allow create: if day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && request.resource.data.keys().hasOnly(counters())
+        && step('views', 0) && step('visitors', 0) && step('book', 0) && step('call', 0);
+      allow update: if request.resource.data.keys().hasOnly(counters())
+        && step('views', resource.data.get('views', 0))
+        && step('visitors', resource.data.get('visitors', 0))
+        && step('book', resource.data.get('book', 0))
+        && step('call', resource.data.get('call', 0));
+    }
+  }
+}
