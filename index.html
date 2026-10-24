@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Cerise — Restaurant à Schiltigheim</title>
+<meta name="description" content="La Cerise, restaurant convivial près du vieux Schilick : ribs fondants, tartes flambées, terrasse ombragée. 13 rue Neuve, 67300 Schiltigheim.">
+<meta name="theme-color" content="#7a1626">
+<meta property="og:title" content="La Cerise — Restaurant à Schiltigheim">
+<meta property="og:description" content="Ribs fondants, tartes flambées et terrasse ombragée près du vieux Schilick.">
+<meta property="og:image" content="https://cdn.thefork.com/tf-lab/image/upload/w_1200,c_fill,q_auto,f_jpg/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/074bfad2-8098-469a-b3f3-ef52d44b248b.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M30 6c4 10 10 16 22 18' stroke='%23476b2c' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M30 6c-2 12-8 20-14 26' stroke='%23476b2c' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='17' cy='44' r='14' fill='%23a3182f'/%3E%3Ccircle cx='45' cy='40' r='14' fill='%23c21f3a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "La Cerise",
+  "servesCuisine": ["Alsacienne", "Française"],
+  "priceRange": "€€",
+  "telephone": "+33388478386",
+  "email": "info@laceriseschilick.fr",
+  "address": {"@type": "PostalAddress", "streetAddress": "13 rue Neuve", "postalCode": "67300", "addressLocality": "Schiltigheim", "addressCountry": "FR"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 48.6042961, "longitude": 7.7532725},
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "11:30", "closes": "14:30"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "18:30", "closes": "22:30"}
+  ],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "241"}
+}
+</script>
+<style>
+:root{
+  --cherry:#7a1626; --cherry-2:#a3182f; --cherry-3:#c21f3a;
+  --leaf:#476b2c; --cream:#faf5ee; --paper:#f3ebe0; --ink:#2a1a1c; --muted:#6e5d5f;
+  --line:#e4d7c8; --gold:#c89b4a;
+  --serif:"Cormorant Garamond", Georgia, serif; --sans:"Inter", system-ui, sans-serif;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cherry-2);font-weight:600}
+.section{padding:96px 0}
+.section h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:.4rem 0 1rem}
+.lead{color:var(--muted);max-width:620px;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.9rem 1.5rem;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid transparent;transition:transform .2s,background .2s,color .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--cherry-3);color:#fff}
+.btn-primary:hover{background:var(--cherry-2)}
+.btn-ghost{border-color:rgba(255,255,255,.7);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--cherry)}
+.btn-outline{border-color:var(--cherry);color:var(--cherry)}
+.btn-outline:hover{background:var(--cherry);color:#fff}
+.btn svg{width:18px;height:18px}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+header.solid{background:rgba(250,245,238,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:#fff;font-family:var(--serif);font-size:1.7rem;font-weight:700;letter-spacing:.02em}
+header.solid .brand{color:var(--cherry)}
+.brand svg{width:34px;height:34px}
+.links{display:flex;gap:28px;list-style:none}
+.links a{text-decoration:none;color:#fff;font-size:.92rem;font-weight:500;opacity:.92}
+header.solid .links a{color:var(--ink)}
+.links a:hover{opacity:1;color:var(--cherry-3)}
+.right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid rgba(255,255,255,.5);border-radius:999px;overflow:hidden}
+header.solid .lang{border-color:var(--line)}
+.lang button{background:none;border:0;color:#fff;font:600 .75rem var(--sans);padding:.4rem .6rem;cursor:pointer}
+header.solid .lang button{color:var(--muted)}
+.lang button.on{background:var(--cherry-3);color:#fff!important}
+.nav .btn{padding:.6rem 1.1rem;font-size:.86rem}
+.burger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:6px}
+header.solid .burger{color:var(--ink)}
+.burger svg{width:26px;height:26px}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#3a0d14}
+.hero-bg{position:absolute;inset:0;background:url("https://cdn.thefork.com/tf-lab/image/upload/w_2000,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/7d54034c-b264-4084-9c62-0c910d4ffc26.jpg") center/cover;transform:scale(1.06);animation:zoom 18s ease-out forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,8,14,.55) 0%,rgba(40,8,14,.25) 40%,rgba(40,8,14,.85) 100%)}
+.hero-inner{position:relative;z-index:1;padding:140px 0 72px}
+.hero h1{font-size:clamp(3.4rem,11vw,8rem);font-weight:700;letter-spacing:-.01em;margin:.6rem 0 .4rem}
+.hero h1 em{font-style:italic;font-weight:500;color:#ffd5dc}
+.hero p.tag{font-size:clamp(1.05rem,2.2vw,1.3rem);max-width:560px;opacity:.95}
+.hero .eyebrow{color:#ffc4cd}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:2rem 0 2.6rem}
+.badges{display:flex;flex-wrap:wrap;gap:12px}
+.badge{display:flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);padding:.6rem 1rem;border-radius:14px;font-size:.85rem}
+.badge b{font-family:var(--serif);font-size:1.6rem;line-height:1}
+.stars{color:var(--gold);letter-spacing:1px}
+.status-dot{width:10px;height:10px;border-radius:50%;background:#9aa;box-shadow:0 0 0 4px rgba(255,255,255,.15)}
+.status-dot.open{background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.25)}
+.status-dot.closed{background:#f87171}
+
+/* about */
+.about{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.about-photos{position:relative;aspect-ratio:1/1.05}
+.about-photos img{position:absolute;object-fit:cover;border-radius:var(--radius);box-shadow:0 30px 60px -25px rgba(60,10,20,.45)}
+.about-photos img:nth-child(1){inset:0 22% 18% 0;width:78%;height:82%}
+.about-photos img:nth-child(2){right:0;bottom:0;width:52%;height:52%;border:8px solid var(--cream)}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:2rem}
+.feature{display:flex;gap:.8rem;align-items:flex-start}
+.feature .ic{flex:none;width:42px;height:42px;border-radius:12px;background:var(--paper);display:grid;place-items:center;color:var(--cherry-2)}
+.feature .ic svg{width:22px;height:22px}
+.feature b{display:block;font-size:.95rem}
+.feature span{font-size:.86rem;color:var(--muted)}
+
+/* specialties */
+.specials{background:var(--cherry);color:#fff;position:relative;overflow:hidden}
+.specials .eyebrow{color:#ffc4cd}
+.specials .lead{color:rgba(255,255,255,.8)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:3rem}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);overflow:hidden;transition:transform .3s}
+.card:hover{transform:translateY(-6px)}
+.card .ph{aspect-ratio:4/3;overflow:hidden;background:#5a0f1b}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .ph img{transform:scale(1.06)}
+.card .body{padding:22px 24px 26px}
+.card h3{font-size:1.8rem;margin-bottom:.3rem}
+.card p{color:rgba(255,255,255,.78);font-size:.92rem}
+.card .price{margin-top:1rem;font-family:var(--serif);font-size:1.4rem;color:#ffd5dc}
+
+/* menu */
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:2.4rem 0 2rem;position:sticky;top:72px;z-index:5;background:var(--cream);padding:10px 0}
+.tab{border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:.55rem 1.1rem;border-radius:999px;font:500 .9rem var(--sans);cursor:pointer;transition:.2s}
+.tab:hover{border-color:var(--cherry-3)}
+.tab.on{background:var(--cherry);border-color:var(--cherry);color:#fff}
+.menu-panel{display:none;animation:fade .4s}
+.menu-panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.menu-groups{columns:2;column-gap:56px}
+.group{break-inside:avoid;margin-bottom:2.4rem}
+.group h3{font-size:1.75rem;color:var(--cherry);padding-bottom:.5rem;border-bottom:1px solid var(--line);margin-bottom:.8rem;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.group h3 small{font-family:var(--sans);font-size:.78rem;color:var(--muted);font-weight:500}
+.dish{padding:.6rem 0}
+.dish-row{display:flex;align-items:baseline;gap:10px}
+.dish-name{font-weight:600}
+.dish-dots{flex:1;border-bottom:1.5px dotted #cdbba8;transform:translateY(-4px)}
+.dish-price{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--cherry-2);white-space:nowrap}
+.dish-desc{font-size:.86rem;color:var(--muted);margin-top:.1rem}
+.chip{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;background:#fde7ea;color:var(--cherry-2);padding:.1rem .45rem;border-radius:6px;margin-left:.4rem;vertical-align:2px}
+.note{font-size:.85rem;color:var(--muted);font-style:italic;margin-top:1rem}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px;margin-top:2.6rem}
+.gallery button{border:0;padding:0;cursor:zoom-in;border-radius:14px;overflow:hidden;background:var(--paper)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery button:hover img{transform:scale(1.05)}
+.gallery .big{grid-column:span 2;grid-row:span 2}
+.gallery .tall{grid-row:span 2}
+.lightbox{position:fixed;inset:0;background:rgba(20,5,8,.92);display:none;place-items:center;z-index:100;padding:24px}
+.lightbox.on{display:grid}
+.lightbox img{max-height:86vh;border-radius:12px}
+.lightbox button{position:absolute;background:rgba(255,255,255,.12);border:0;color:#fff;width:48px;height:48px;border-radius:50%;font-size:1.5rem;cursor:pointer}
+.lb-close{top:20px;right:20px}.lb-prev{left:20px;top:50%}.lb-next{right:20px;top:50%}
+
+/* reviews */
+.reviews{background:var(--paper)}
+.scores{display:flex;gap:40px;flex-wrap:wrap;margin-top:1.6rem}
+.score b{font-family:var(--serif);font-size:3.2rem;color:var(--cherry);line-height:1}
+.score span{display:block;font-size:.85rem;color:var(--muted)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:2.6rem}
+.quote{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 10px 30px -18px rgba(60,10,20,.25);display:flex;flex-direction:column}
+.quote p{font-family:var(--serif);font-size:1.25rem;line-height:1.45;flex:1}
+.quote p::before{content:"“";display:block;font-size:3.4rem;line-height:.6;color:var(--cherry-3);margin-bottom:.4rem}
+.quote footer{margin-top:1.2rem;font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between}
+
+/* info */
+.info{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:stretch}
+.hours{list-style:none;margin:1.4rem 0 2rem}
+.hours li{display:flex;justify-content:space-between;padding:.7rem 0;border-bottom:1px solid var(--line);font-size:.97rem}
+.hours li.today{color:var(--cherry);font-weight:600}
+.hours li .closed{color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:.6rem;background:#fff;border:1px solid var(--line);padding:.5rem .9rem;border-radius:999px;font-size:.88rem;font-weight:500}
+.status .status-dot{box-shadow:none}
+.contact-list{list-style:none;display:grid;gap:14px;margin-bottom:2rem}
+.contact-list a{display:flex;align-items:center;gap:.9rem;text-decoration:none;font-weight:500}
+.contact-list a:hover{color:var(--cherry-3)}
+.contact-list .ic{width:40px;height:40px;border-radius:50%;background:var(--paper);display:grid;place-items:center;color:var(--cherry-2);flex:none}
+.contact-list svg{width:18px;height:18px}
+.map{border-radius:var(--radius);overflow:hidden;min-height:440px;border:1px solid var(--line);background:var(--paper)}
+.map iframe{width:100%;height:100%;min-height:440px;border:0;display:block}
+
+/* footer */
+footer.site{background:#25090f;color:rgba(255,255,255,.75);padding:56px 0 100px;font-size:.88rem}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer.site .brand{color:#fff}
+footer.site a{text-decoration:none}
+footer.site a:hover{color:#fff}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+
+/* mobile action bar */
+.mbar{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px}
+.mbar a{flex:1;justify-content:center;box-shadow:0 10px 30px -10px rgba(0,0,0,.4)}
+.mbar .call{background:#fff;color:var(--cherry);border-color:var(--line)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .links{display:none}
+  .links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--cream);padding:20px 24px;gap:18px;box-shadow:0 20px 30px -20px rgba(0,0,0,.3)}
+  .links.open a{color:var(--ink)!important;font-size:1.05rem}
+  .burger{display:block}
+  .nav .btn{display:none}
+  .about,.info{grid-template-columns:1fr;gap:40px}
+  .cards,.quotes{grid-template-columns:1fr}
+  .menu-groups{columns:1}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .gallery .big{grid-column:span 2}
+  .mbar{display:flex}
+  .section{padding:72px 0}
+  .hero-inner{padding-bottom:110px}
+}
+@media (max-width:520px){
+  .features{grid-template-columns:1fr}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px}
+  .tab{flex:none}
+  .brand{font-size:1.45rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="cherry" viewBox="0 0 64 64"><path d="M31 6c4 10 10 16 21 18" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M31 6c-2 12-8 20-14 26" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M31 7c6-4 13-3 17 1-6 3-12 3-17-1z" fill="#6c9a42"/><circle cx="17" cy="44" r="13" fill="#c21f3a"/><circle cx="46" cy="40" r="13" fill="#a3182f"/><circle cx="12" cy="39" r="3" fill="#fff" opacity=".45"/><circle cx="41" cy="35" r="3" fill="#fff" opacity=".45"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m22 7-10 6L2 7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.4 5.1-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></symbol>
+  <symbol id="i-dog" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10 5.2C10 3.6 8.6 2.1 6.9 2.3 4 2.7 2 6 2.5 8.5c.3 1.4 1.3 2 2.5 1.6M14.3 5.2C14.3 3.6 15.7 2.1 17.4 2.3c2.9.4 4.9 3.7 4.4 6.2-.3 1.4-1.3 2-2.5 1.6M8 14v.5M16 14v.5M11.3 17h1.4L12 18zM4.4 11.9C4.1 13.1 4 14.4 4 16c0 3.9 3.6 6 8 6s8-2.1 8-6c0-1.6-.1-2.9-.4-4.1-.6-2.6-3-4.4-7.6-4.4s-7 1.8-7.6 4.4z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="brand" aria-label="La Cerise"><svg><use href="#cherry"/></svg>La Cerise</a>
+    <ul class="links" id="links">
+      <li><a href="#about" data-i18n="nav.about">Le restaurant</a></li>
+      <li><a href="#menu" data-i18n="nav.menu">La carte</a></li>
+      <li><a href="#gallery" data-i18n="nav.gallery">Photos</a></li>
+      <li><a href="#reviews" data-i18n="nav.reviews">Avis</a></li>
+      <li><a href="#info" data-i18n="nav.info">Infos & accès</a></li>
+    </ul>
+    <div class="right">
+      <div class="lang" role="group" aria-label="Langue">
+        <button data-lang="fr" class="on">FR</button><button data-lang="en">EN</button><button data-lang="de">DE</button>
+      </div>
+      <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener" data-i18n="cta.book">Réserver</a>
+      <button class="burger" id="burger" aria-label="Menu"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="Terrasse de La Cerise"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow" data-i18n="hero.eyebrow">Schiltigheim · Près du vieux Schilick</div>
+    <h1>La <em>Cerise</em></h1>
+    <p class="tag" data-i18n="hero.tag">Ribs fondants, tartes flambées croustillantes et vins d'Alsace — servis avec le sourire sur notre terrasse ombragée.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
+      <a class="btn btn-ghost" href="#menu" data-i18n="cta.menu">Voir la carte</a>
+    </div>
+    <div class="badges">
+      <div class="badge"><b>4,8</b><div><div class="stars">★★★★★</div>Google · 241 <span data-i18n="w.reviews">avis</span></div></div>
+      <div class="badge"><b>9,4</b><div>TheFork<br>729 <span data-i18n="w.reviews">avis</span></div></div>
+      <div class="badge"><span class="status-dot" id="dot1"></span><div id="status1">…</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap about">
+    <div class="about-photos reveal">
+      <img src="https://cdn.thefork.com/tf-lab/image/upload/w_1000,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/ff7f9ebf-2f78-428a-aa60-9f87bae7df3b.jpg" alt="Salle de La Cerise, murs en pierre et bois" loading="lazy">
+      <img src="https://cdn.thefork.com/tf-lab/image/upload/w_700,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/6a0fee01-a952-450d-9b1d-41ac2105825b.jpg" alt="Tarte flambée gratinée" loading="lazy">
+    </div>
+    <div class="reveal">
+      <div class="eyebrow" data-i18n="about.eyebrow">Bienvenue</div>
+      <h2 data-i18n="about.title">Une adresse chaleureuse, une cuisine généreuse</h2>
+      <p class="lead" data-i18n="about.text">À deux pas du vieux Schilick, La Cerise vous accueille dans une salle aux murs de pierre et de bois ou sur sa grande terrasse. Notre chef prépare des ribs tendres qui se détachent tout seuls de l'os, des tartes flambées bien garnies et des plats du jour copieux, avec des produits locaux.</p>
+      <div class="features">
+        <div class="feature"><div class="ic"><svg><use href="#i-sun"/></svg></div><div><b data-i18n="f1.t">Terrasse ombragée</b><span data-i18n="f1.d">Grands parasols, plantes et calme</span></div></div>
+        <div class="feature"><div class="ic"><svg><use href="#i-leaf"/></svg></div><div><b data-i18n="f2.t">Produits locaux</b><span data-i18n="f2.d">Bœuf Aubrac ou Salers, vins d'Alsace</span></div></div>
+        <div class="feature"><div class="ic"><svg><use href="#i-heart"/></svg></div><div><b data-i18n="f3.t">Accueil souriant</b><span data-i18n="f3.d">Service 9,6/10 sur TheFork</span></div></div>
+        <div class="feature"><div class="ic"><svg><use href="#i-dog"/></svg></div><div><b data-i18n="f4.t">Chiens bienvenus</b><span data-i18n="f4.d">Familles et groupes aussi</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section specials">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="sp.eyebrow">Nos spécialités</div>
+    <h2 data-i18n="sp.title">Ce que nos clients adorent</h2>
+    <p class="lead" data-i18n="sp.lead">Trois raisons de revenir — et nos clients reviennent souvent.</p>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="ph"><img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/074bfad2-8098-469a-b3f3-ef52d44b248b.jpg" alt="Ribs BBQ miel et frites" loading="lazy"></div>
+        <div class="body"><h3 data-i18n="sp1.t">Nos ribs</h3><p data-i18n="sp1.d">Sept recettes : BBQ miel, piquant, munster, roquefort, ail & persil, moutarde à l'ancienne, curry.</p><div class="price"><span data-i18n="w.from">dès</span> 22,5 €</div></div>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/customer/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/988f0aff-3405-4a6f-8956-610e2adfd698.jpg" alt="Tarte flambée forestière" loading="lazy"></div>
+        <div class="body"><h3 data-i18n="sp2.t">Tartes flambées</h3><p data-i18n="sp2.d">La tradition alsacienne : crème, oignons, lardons — en version gratinée, forestière, munster…</p><div class="price"><span data-i18n="w.from">dès</span> 9 €</div></div>
+      </article>
+      <article class="card reveal">
+        <div class="ph"><img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/customer/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/2906496b-3675-4219-a4b6-3825f67703fc.jpg" alt="Mousse au chocolat maison" loading="lazy"></div>
+        <div class="body"><h3 data-i18n="sp3.t">La touche cerise</h3><p data-i18n="sp3.d">Tarte flambée aux griottes, bière Meteor cerise et notre liqueur de griottes maison.</p><div class="price">5 – 12,5 €</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div>
+        <div class="eyebrow" data-i18n="m.eyebrow">La carte</div>
+        <h2 data-i18n="m.title">Notre menu</h2>
+        <p class="lead" data-i18n="m.lead">Prix moyen d'un repas : 22 €. Tous nos plats sont servis avec une garniture au choix.</p>
+      </div>
+    </div>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div id="panels"></div>
+    <p class="note" data-i18n="m.note">Carte indicative, susceptible d'évoluer selon les saisons. Tartes flambées salées disponibles à la dinde sur demande.</p>
+  </div>
+</section>
+
+<section class="section" id="gallery" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="g.eyebrow">En images</div>
+    <h2 data-i18n="g.title">Un coin de bonheur à Schilick</h2>
+    <div class="gallery" id="gal"></div>
+  </div>
+</section>
+
+<section class="section reviews" id="reviews">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="r.eyebrow">Avis clients</div>
+    <h2 data-i18n="r.title">Ils en parlent mieux que nous</h2>
+    <div class="scores">
+      <div class="score"><b>4,8</b><span>Google · 241 <span data-i18n="w.reviews">avis</span></span></div>
+      <div class="score"><b>9,5</b><span data-i18n="r.food">Cuisine · TheFork</span></div>
+      <div class="score"><b>9,6</b><span data-i18n="r.service">Service · TheFork</span></div>
+      <div class="score"><b>9,2</b><span data-i18n="r.ambiance">Ambiance · TheFork</span></div>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal"><p>Les ribs étaient particulièrement tendres et délicieux. La viande se détachait toute seule des os. Nous nous sommes régalés.</p><footer><span>Carine A.</span><span class="stars">★★★★★</span></footer></figure>
+      <figure class="quote reveal"><p>Very nice and attentive service & chef; super dog-friendly and the food was amazing. Definitely coming back.</p><footer><span>Jan-Niklas K.</span><span class="stars">★★★★★</span></footer></figure>
+      <figure class="quote reveal"><p>Cadre agréable et clair, plats du jour copieux et délicieux, personnel très à l'écoute des clients. Nous recommandons vivement.</p><footer><span>Mireille C.</span><span class="stars">★★★★★</span></footer></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="info">
+  <div class="wrap info">
+    <div class="reveal">
+      <div class="eyebrow" data-i18n="i.eyebrow">Infos pratiques</div>
+      <h2 data-i18n="i.title">Venez nous voir</h2>
+      <div class="status"><span class="status-dot" id="dot2"></span><span id="status2">…</span></div>
+      <ul class="hours" id="hours"></ul>
+      <ul class="contact-list">
+        <li><a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-pin"/></svg></span>13 rue Neuve, 67300 Schiltigheim</a></li>
+        <li><a href="tel:+33388478386"><span class="ic"><svg><use href="#i-phone"/></svg></span>+33 3 88 47 83 86</a></li>
+        <li><a href="mailto:info@laceriseschilick.fr"><span class="ic"><svg><use href="#i-mail"/></svg></span>info@laceriseschilick.fr</a></li>
+        <li><a href="https://facebook.com/la.cerise.restaurant" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-fb"/></svg></span>facebook.com/la.cerise.restaurant</a></li>
+      </ul>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&destination=La+Cerise+13+Rue+Neuve+67300+Schiltigheim" target="_blank" rel="noopener" data-i18n="cta.route">Itinéraire</a>
+      </div>
+    </div>
+    <div class="map reveal">
+      <iframe title="Carte" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=La+Cerise,+13+Rue+Neuve,+67300+Schiltigheim&z=16&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap foot">
+    <a href="#" class="brand"><svg><use href="#cherry"/></svg>La Cerise</a>
+    <div class="foot-links">
+      <a href="tel:+33388478386">+33 3 88 47 83 86</a>
+      <a href="mailto:info@laceriseschilick.fr">info@laceriseschilick.fr</a>
+      <a href="https://facebook.com/la.cerise.restaurant" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div>© <span id="year"></span> La Cerise · Schiltigheim</div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn call" href="tel:+33388478386"><svg><use href="#i-phone"/></svg><span data-i18n="cta.call">Appeler</span></a>
+  <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.book">Réserver</span></a>
+</div>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true">
+  <img id="lbimg" alt="">
+  <button class="lb-close" aria-label="Fermer">×</button>
+  <button class="lb-prev" aria-label="Précédent">‹</button>
+  <button class="lb-next" aria-label="Suivant">›</button>
+</div>
+
+<script>
+const I18N = {
+  fr: {},
+  en: {
+    "nav.about":"The restaurant","nav.menu":"Menu","nav.gallery":"Photos","nav.reviews":"Reviews","nav.info":"Info & directions",
+    "cta.book":"Book","cta.bookTable":"Book a table","cta.menu":"See the menu","cta.route":"Directions","cta.call":"Call",
+    "hero.eyebrow":"Schiltigheim · Next to old Schilick",
+    "hero.tag":"Melt-in-your-mouth ribs, crispy tartes flambées and Alsace wines — served with a smile on our shaded terrace.",
+    "w.reviews":"reviews","w.from":"from",
+    "about.eyebrow":"Welcome","about.title":"A warm place, generous food",
+    "about.text":"Just steps from old Schilick, La Cerise welcomes you in a stone-and-wood dining room or on its large terrace. Our chef cooks tender ribs that fall off the bone, well-topped tartes flambées and hearty dishes of the day, using local produce.",
+    "f1.t":"Shaded terrace","f1.d":"Big parasols, plants and calm","f2.t":"Local produce","f2.d":"Aubrac or Salers beef, Alsace wines",
+    "f3.t":"Friendly welcome","f3.d":"Service rated 9.6/10 on TheFork","f4.t":"Dogs welcome","f4.d":"Families and groups too",
+    "sp.eyebrow":"Our specialties","sp.title":"What our guests love","sp.lead":"Three reasons to come back — and our guests often do.",
+    "sp1.t":"Our ribs","sp1.d":"Seven recipes: honey BBQ, spicy, Munster, Roquefort, garlic & parsley, old-style mustard, curry.",
+    "sp2.t":"Tartes flambées","sp2.d":"The Alsatian classic: cream, onions, bacon — also gratinée, with mushrooms, with Munster…",
+    "sp3.t":"The cherry touch","sp3.d":"Morello cherry tarte flambée, Meteor cherry beer and our homemade cherry liqueur.",
+    "m.eyebrow":"Our menu","m.title":"The menu","m.lead":"Average price per meal: €22. All main dishes come with a side of your choice.",
+    "m.note":"Indicative menu, may change with the seasons. Savoury tartes flambées available with turkey on request.",
+    "g.eyebrow":"In pictures","g.title":"A happy corner of Schilick",
+    "r.eyebrow":"Guest reviews","r.title":"They say it better than us","r.food":"Food · TheFork","r.service":"Service · TheFork","r.ambiance":"Atmosphere · TheFork",
+    "i.eyebrow":"Practical info","i.title":"Come and see us",
+    "tab.food":"Dishes","tab.flamm":"Tartes flambées","tab.desserts":"Desserts","tab.drinks":"Drinks","tab.wines":"Wines",
+    "g.starters":"Starters","g.ribs":"Our ribs","g.mains":"Main dishes","g.sides":"Sides of your choice","g.kids":"Kids menu",
+    "g.savoury":"Savoury","g.sweet":"Sweet","g.desserts":"Desserts","g.ice":"Ice cream","g.softs":"Soft drinks","g.coffee":"Hot drinks",
+    "g.beers":"Beers","g.cocktails":"Cocktails","g.apero":"Aperitifs","g.spirits":"Spirits & eaux-de-vie","g.shots":"Shooters",
+    "g.alsace":"Alsace wines","g.red":"Red wines","g.rose":"Rosé wines","g.white":"White wines","g.bubbles":"Bubbles",
+    "chip.house":"homemade","chip.star":"signature",
+    "open.now":"Open now · until ","open.later":"Closed · opens today at ","open.closed":"Closed · reopens ","open.tue":"Tuesday at 11:30",
+    "closed":"Closed","days":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"tomorrow":"tomorrow at 11:30"
+  },
+  de: {
+    "nav.about":"Das Restaurant","nav.menu":"Speisekarte","nav.gallery":"Fotos","nav.reviews":"Bewertungen","nav.info":"Infos & Anfahrt",
+    "cta.book":"Reservieren","cta.bookTable":"Tisch reservieren","cta.menu":"Zur Speisekarte","cta.route":"Route","cta.call":"Anrufen",
+    "hero.eyebrow":"Schiltigheim · Nahe dem alten Schilick",
+    "hero.tag":"Zarte Spareribs, knusprige Flammkuchen und Elsässer Weine — mit einem Lächeln serviert auf unserer schattigen Terrasse.",
+    "w.reviews":"Bewertungen","w.from":"ab",
+    "about.eyebrow":"Willkommen","about.title":"Ein herzlicher Ort, eine großzügige Küche",
+    "about.text":"Nur wenige Schritte vom alten Schilick empfängt Sie La Cerise in einem Gastraum aus Stein und Holz oder auf der großen Terrasse. Unser Koch bereitet zarte Ribs, die vom Knochen fallen, reich belegte Flammkuchen und üppige Tagesgerichte aus regionalen Produkten.",
+    "f1.t":"Schattige Terrasse","f1.d":"Große Sonnenschirme, Pflanzen, Ruhe","f2.t":"Regionale Produkte","f2.d":"Aubrac- oder Salers-Rind, Elsässer Weine",
+    "f3.t":"Herzlicher Empfang","f3.d":"Service 9,6/10 auf TheFork","f4.t":"Hunde willkommen","f4.d":"Familien und Gruppen auch",
+    "sp.eyebrow":"Unsere Spezialitäten","sp.title":"Was unsere Gäste lieben","sp.lead":"Drei Gründe wiederzukommen — und unsere Gäste kommen oft wieder.",
+    "sp1.t":"Unsere Ribs","sp1.d":"Sieben Rezepte: BBQ-Honig, scharf, Munster, Roquefort, Knoblauch & Petersilie, alter Senf, Curry.",
+    "sp2.t":"Flammkuchen","sp2.d":"Der Elsässer Klassiker: Sahne, Zwiebeln, Speck — auch überbacken, mit Pilzen, mit Munster…",
+    "sp3.t":"Der Kirsch-Moment","sp3.d":"Flammkuchen mit Sauerkirschen, Meteor-Kirschbier und unser hausgemachter Kirschlikör.",
+    "m.eyebrow":"Die Karte","m.title":"Unsere Speisekarte","m.lead":"Durchschnittspreis pro Mahlzeit: 22 €. Alle Hauptgerichte mit Beilage nach Wahl.",
+    "m.note":"Unverbindliche Karte, kann sich je nach Saison ändern. Herzhafte Flammkuchen auf Wunsch mit Pute.",
+    "g.eyebrow":"In Bildern","g.title":"Ein Glücksort in Schilick",
+    "r.eyebrow":"Gästebewertungen","r.title":"Sie sagen es besser als wir","r.food":"Küche · TheFork","r.service":"Service · TheFork","r.ambiance":"Ambiente · TheFork",
+    "i.eyebrow":"Praktische Infos","i.title":"Besuchen Sie uns",
+    "tab.food":"Gerichte","tab.flamm":"Flammkuchen","tab.desserts":"Desserts","tab.drinks":"Getränke","tab.wines":"Weine",
+    "g.starters":"Vorspeisen","g.ribs":"Unsere Ribs","g.mains":"Hauptgerichte","g.sides":"Beilage nach Wahl","g.kids":"Kindermenü",
+    "g.savoury":"Herzhaft","g.sweet":"Süß","g.desserts":"Desserts","g.ice":"Eis","g.softs":"Alkoholfreie Getränke","g.coffee":"Heißgetränke",
+    "g.beers":"Biere","g.cocktails":"Cocktails","g.apero":"Aperitifs","g.spirits":"Spirituosen & Obstbrände","g.shots":"Shots",
+    "g.alsace":"Elsässer Weine","g.red":"Rotweine","g.rose":"Roséweine","g.white":"Weißweine","g.bubbles":"Schaumweine",
+    "chip.house":"hausgemacht","chip.star":"Spezialität",
+    "open.now":"Jetzt geöffnet · bis ","open.later":"Geschlossen · öffnet heute um ","open.closed":"Geschlossen · wieder geöffnet ","open.tue":"Dienstag um 11:30",
+    "closed":"Geschlossen","days":["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],"tomorrow":"morgen um 11:30"
+  }
+};
+const FR = {
+  "tab.food":"Plats","tab.flamm":"Tartes flambées","tab.desserts":"Desserts","tab.drinks":"Boissons","tab.wines":"Vins",
+  "g.starters":"Entrées","g.ribs":"Nos ribs","g.mains":"Plats","g.sides":"Garniture au choix","g.kids":"Menu enfant",
+  "g.savoury":"Salées","g.sweet":"Sucrées","g.desserts":"Desserts","g.ice":"Glaces","g.softs":"Les softs","g.coffee":"La cafétéria",
+  "g.beers":"Les bières","g.cocktails":"Les cocktails","g.apero":"L'apéro","g.spirits":"Alcools & eaux-de-vie","g.shots":"Nos shooters",
+  "g.alsace":"Les vins d'Alsace","g.red":"Vins rouges","g.rose":"Vins rosés","g.white":"Vins blancs","g.bubbles":"Les bulles",
+  "chip.house":"maison","chip.star":"spécialité",
+  "open.now":"Ouvert maintenant · jusqu'à ","open.later":"Fermé · ouvre aujourd'hui à ","open.closed":"Fermé · réouverture ","open.tue":"mardi à 11:30",
+  "closed":"Fermé","days":["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],"tomorrow":"demain à 11:30"
+};
+
+// [name, price, description?, chip?]
+const MENU = [
+  {tab:"food", groups:[
+    {g:"starters", items:[
+      ["Salade mixte","11 €","Salade verte, emmental, cervelas"],
+      ["Salade César","12 €","Salade verte, poulet, emmental, parmesan, tomates, croûtons"],
+      ["Salade de truite saumonée aux agrumes","13 €","Salade verte, truite, oranges, citrons, oignons, croûtons"],
+      ["Gaspacho et son toast de chèvre miel","7 €"],
+      ["Beignets de calmars, sauce tartare maison","9 €"],
+      ["Ardoise de charcuteries","8,5 €","Coppa, jambon italien, jambon blanc, chorizo"],
+      ["Ardoise de fromages","9 €","4 variétés, suivant l'humeur du chef"]
+    ]},
+    {g:"ribs", items:[
+      ["Ribs classic BBQ miel","22,5 €",null,"star"],
+      ["Ribs BBQ piquant","22,5 €"],
+      ["Ribs sauce crème ail et persil","22,5 €"],
+      ["Ribs moutarde à l'ancienne","22,5 €"],
+      ["Ribs sauce curry","22,5 €"],
+      ["Ribs sauce crème munster","23 €"],
+      ["Ribs sauce crème roquefort","23 €"]
+    ]},
+    {g:"mains", items:[
+      ["Onglet de bœuf maturé vintage (250 g)","24 €","Sauce au choix : beurre maître d'hôtel, crème champignons, munster ou roquefort"],
+      ["Tartare de bœuf coupé au couteau","19,5 €","Aubrac ou Salers suivant arrivage"],
+      ["Cordon bleu de poulet (min. 300 g)","22,5 €","Sauce crème champignons, munster ou roquefort"],
+      ["Gambas rouges d'Argentine grillées (7 pièces)","22 €"],
+      ["Fish & chips de cabillaud","19,5 €"],
+      ["Joues de porc cuites au bouillon, sauce","19 €"],
+      ["Aubergine rôtie, crème de ricotta, duo de tomates","18,5 €"],
+      ["Salade César","18 €","Salade verte, poulet, emmental, parmesan, tomates, croûtons"],
+      ["Salade mixte","17,5 €","Salade verte, emmental, cervelas"],
+      ["Beignets de calmars, sauce tartare maison","16 €"],
+      ["Club sandwich à l'effiloché de ribs","15 €","Effiloché de porc, fromage, oignons, salade, cornichons, frites"],
+      ["Currywurst","13,9 €"],
+      ["Gaspacho et son toast de chèvre miel","13 €"]
+    ]},
+    {g:"sides", items:[
+      ["Frites · Salade de pommes de terre · Salade verte · Chou",""],
+      ["Supplément garniture","3,5 €"]
+    ]},
+    {g:"kids", price:"12 €", items:[
+      ["Aiguillettes de poulet panées, frites, 1 boule de glace au choix",""]
+    ]}
+  ]},
+  {tab:"flamm", groups:[
+    {g:"savoury", items:[
+      ["Traditionnelle","9 €","Crème, oignons, lardons","star"],
+      ["Gratinée","10 €","Crème, oignons, lardons, emmental"],
+      ["Forestière","10 €","Crème, oignons, lardons, champignons"],
+      ["Ail ciboulette","10 €","Crème, oignons, lardons, ciboulette, ail"],
+      ["Forestière gratinée","11 €","Crème, oignons, lardons, champignons, emmental"],
+      ["Légumes","11 €","Crème, oignons, légumes"],
+      ["Munster","12 €","Crème, oignons, lardons, munster"],
+      ["Supplément salade verte","3,5 €"]
+    ]},
+    {g:"sweet", items:[
+      ["Griottes","12 €",null,"star"],
+      ["Griottes choco","12,5 €"],
+      ["Myrtilles","12 €"],
+      ["Banane choco","12 €"]
+    ]}
+  ]},
+  {tab:"desserts", groups:[
+    {g:"desserts", items:[
+      ["Mousse au chocolat","7,5 €"],
+      ["Charlotte aux fraises","7,7 €"],
+      ["Crème brûlée","6 €"],
+      ["Salade de fruits maison","6,5 €",null,"house"],
+      ["Café gourmand","8,5 €"],
+      ["Irish coffee","9 €"]
+    ]},
+    {g:"ice", items:[
+      ["1 boule","2,6 €","Vanille, café, chocolat, citron, fraise, cerise, framboise"],
+      ["2 boules","5,2 €"],
+      ["3 boules","7,3 €"],
+      ["Chocolat liégeois","8,2 €"],
+      ["Café liégeois","8,2 €"],
+      ["Colonel","9,5 €"],
+      ["Framboise arrosée","9,5 €"]
+    ]}
+  ]},
+  {tab:"drinks", groups:[
+    {g:"beers", items:[
+      ["Meteor Pils 25 / 50 cl","3,5 / 6,2 €"],
+      ["Meteor Cerise 25 / 50 cl","4,5 / 8,2 €",null,"star"],
+      ["Desperados 33 cl","5,5 €"],
+      ["Picon bière 25 / 50 cl","4 / 7,5 €"],
+      ["Cynar bière 25 / 50 cl","4 / 7,5 €"],
+      ["Panaché 25 cl","3,2 €"],
+      ["Monaco 25 cl","3,5 €"]
+    ]},
+    {g:"cocktails", items:[
+      ["Apérol spritz","9 €","Apérol, crémant, eau gazeuse"],
+      ["Campari spritz","9 €","Campari, crémant, eau gazeuse"],
+      ["Hugo","9 €","Liqueur de sureau, crémant, menthe, citron vert"],
+      ["Mojito","9 €","Rhum, citron vert, menthe, sucre, eau gazeuse"],
+      ["Jus de jungle","9,5 €","Gin, pisang ambon, orange, ananas, citron"],
+      ["Gin tonic","8,5 €"],
+      ["Lillet blanc / rosé tonic","8 €"],
+      ["Mojito sans alcool","7 €"]
+    ]},
+    {g:"apero", items:[
+      ["Crémant 12 cl","5,5 €"],["Kir royal 12 cl","6 €"],["Kir vin blanc 12 cl","5,5 €"],
+      ["Porto 6 cl","5,5 €"],["Martini 6 cl","6 €"],["Baileys · Get 27 · Amaretto 6 cl","6 €"],["Ricard 2 cl","2,8 €"]
+    ]},
+    {g:"spirits", items:[
+      ["Liqueur de griottes maison 4 cl","5 €",null,"house"],
+      ["Eaux-de-vie d'Alsace 4 cl","6,3 €","Marc de gewurztraminer, poire williams, framboise, mirabelle, kirsch"],
+      ["Gin Gordon's · Rhum Havana 3 ans · Vodka · Jägermeister 4 cl","7 €"],
+      ["Whisky Jack Daniel's 4 cl","7,5 €"],
+      ["Rhum Diplomático Reserva 4 cl","8,7 €"],
+      ["Cognac Hennessy / Lheraud / Rémy Martin VSOP","8 – 9,5 €"],
+      ["Whisky Fuji single grain 4 cl","12,5 €"]
+    ]},
+    {g:"shots", items:[
+      ["Madeleine","3 €"],["Mexican vert","4 €","Tequila, pisang ambon, citron"],["Kamikaze","4 €","Vodka, Cointreau, citron vert"],["B-52","4 €","Kahlúa, Baileys, Cointreau"]
+    ]},
+    {g:"softs", items:[
+      ["Coca-Cola / Zero / Cherry 33 cl","3,8 €"],["Fuze Tea 25 cl · Orangina 25 cl","3,8 €"],["Jus de fruit 20 cl","3,8 €","Orange, pomme, tomate, ananas"],
+      ["Perrier 33 cl","3,8 €"],["Diabolo 20 cl","3,3 €","Menthe, grenadine, griottes"],["Carola 0,5 l / 1 l","3,5 / 5,7 €"],
+      ["Schweppes 20 cl","2,2 €"],["Limonade 20 cl","2 €"],["Sirop à l'eau 20 cl","1,7 €"]
+    ]},
+    {g:"coffee", items:[
+      ["Espresso","2,2 €"],["Double espresso","3,9 €"],["Grand café","3 €"],["Cappuccino","3,8 €"],["Café viennois","4 €"],["Thé / infusion","2 €"]
+    ]}
+  ]},
+  {tab:"wines", groups:[
+    {g:"alsace", items:[
+      ["Riesling — Cave de Turckheim","4,3 € / 23 €","12 cl / 75 cl"],
+      ["Veilleur de nuit — Cave de Turckheim","4,7 € / 24,5 €","12 cl / 75 cl"],
+      ["Pinot noir réserve — Cave de Turckheim","5 € / 25 €","12 cl / 75 cl"],
+      ["Gewurztraminer réserve — Cave de Turckheim","27 €","75 cl"]
+    ]},
+    {g:"bubbles", items:[
+      ["Crémant d'Alsace St. Odile","5,5 € / 32 €","12 cl / 75 cl"],
+      ["Prosecco Velodoro extra dry","28 €","75 cl"],
+      ["Crémant d'Alsace Prestige Muré","44 €","75 cl"]
+    ]},
+    {g:"red", items:[
+      ["IGP Gard — Cuvée des Chartreux","3,7 € / 12 €","12 cl / 50 cl"],
+      ["Côtes du Rhône bio — Famille Perrin Réserve","4,7 € / 24 €","12 cl / 75 cl"],
+      ["Brouilly — Domaine Chevalier Métrat","5,8 € / 33 €","12 cl / 75 cl"],
+      ["Languedoc — Abracadabra, Le Chemin des Rêves","31 €","75 cl"],
+      ["Côtes de Bourg — Château Le Clos du Notaire","32 €","75 cl"],
+      ["Vacqueyras — Vieux Clocher","32 €","75 cl"],
+      ["Mercurey vieilles vignes — Tupinier Bautista","47 €","75 cl"]
+    ]},
+    {g:"rose", items:[
+      ["IGP Gard — Cuvée des Chartreux","3,7 € / 12 €","12 cl / 50 cl"],
+      ["Coteaux d'Aix — Château Pigoudet Première","4,5 € / 23 €","12 cl / 75 cl"],
+      ["IGP Île de Beauté — San Pieru","5 € / 25 €","12 cl / 75 cl"]
+    ]},
+    {g:"white", items:[
+      ["Gaillac sec — Château Clément Termes","4,2 € / 22 €","12 cl / 75 cl"]
+    ]}
+  ]}
+];
+
+const PH = "https://cdn.thefork.com/tf-lab/image/upload/";
+const GAL = [
+  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/20cc43de-dfb6-4aa2-a0e9-16e97e7ab3c5","Ribs caramélisés et frites","big"],
+  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/98346b73-aeb9-4971-aaee-bb8818e61800","Terrasse",""],
+  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/09de3592-9f15-4b86-b160-2654ab3b6bf3","Le bar","tall"],
+  ["customer/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/ab3f98ce-0cd5-4264-bf44-87c47dc2efe2","Aubergine rôtie et fish & chips",""],
+  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/a44a6f3a-159a-47fd-839f-d72ccf3449fe","La salle",""],
+  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/7c1e5d33-7a6d-495f-9440-15347e3643d0","Table en terrasse",""],
+  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/6a0fee01-a952-450d-9b1d-41ac2105825b","Tarte flambée",""],
+  ["customer/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/0c7e6bbe-ab3f-4a81-97f4-698367637f4c","Sandwich au saumon et frites",""]
+];
+
+let lang = "fr";
+try { const s = localStorage.getItem("lc-lang"); if (s && I18N[s]) lang = s; } catch(e) {}
+const T = k => (lang === "fr" ? FR[k] : I18N[lang][k]) ?? FR[k];
+const frText = new Map();
+
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    if (!frText.has(el)) frText.set(el, el.textContent);
+    const k = el.dataset.i18n;
+    el.textContent = lang === "fr" ? frText.get(el) : (I18N[lang][k] ?? frText.get(el));
+  });
+  document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
+  renderMenu(); renderHours();
+}
+
+let curTab = "food";
+function renderMenu(){
+  const tabs = document.getElementById("tabs"), panels = document.getElementById("panels");
+  tabs.innerHTML = ""; panels.innerHTML = "";
+  MENU.forEach(sec => {
+    const b = document.createElement("button");
+    b.className = "tab" + (sec.tab === curTab ? " on" : "");
+    b.textContent = T("tab." + sec.tab);
+    b.setAttribute("role","tab");
+    b.onclick = () => { curTab = sec.tab; renderMenu(); };
+    tabs.appendChild(b);
+    const p = document.createElement("div");
+    p.className = "menu-panel" + (sec.tab === curTab ? " on" : "");
+    p.innerHTML = '<div class="menu-groups">' + sec.groups.map(gr =>
+      `<div class="group"><h3>${T("g." + gr.g)}${gr.price ? `<small>${gr.price}</small>` : ""}</h3>` +
+      gr.items.map(([n, pr, d, c]) =>
+        `<div class="dish"><div class="dish-row"><span class="dish-name">${n}${c ? `<span class="chip">${T("chip." + c)}</span>` : ""}</span>${pr ? `<span class="dish-dots"></span><span class="dish-price">${pr}</span>` : ""}</div>${d ? `<div class="dish-desc">${d}</div>` : ""}</div>`
+      ).join("") + "</div>"
+    ).join("") + "</div>";
+    panels.appendChild(p);
+  });
+}
+
+// Opening hours: Tue–Sat, 11:30–14:30 and 18:30–22:30 (Paris time)
+const SLOTS = [[690, 870], [1110, 1350]];
+const OPEN_DAYS = [2,3,4,5,6];
+function parisNow(){
+  const parts = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Paris",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+  const get = t => parts.find(p => p.type === t).value;
+  const day = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(get("weekday"));
+  return {day, min: (+get("hour") % 24) * 60 + +get("minute")};
+}
+const hm = m => String(Math.floor(m/60)).padStart(2,"0") + ":" + String(m%60).padStart(2,"0");
+function renderHours(){
+  const {day, min} = parisNow();
+  const days = T("days");
+  const ul = document.getElementById("hours"); ul.innerHTML = "";
+  [2,3,4,5,6,0,1].forEach(d => {
+    const li = document.createElement("li");
+    if (d === day) li.className = "today";
+    li.innerHTML = `<span>${days[d]}</span>` + (OPEN_DAYS.includes(d) ? `<span>11:30 – 14:30 · 18:30 – 22:30</span>` : `<span class="closed">${T("closed")}</span>`);
+    ul.appendChild(li);
+  });
+  let text, state;
+  const today = OPEN_DAYS.includes(day);
+  const cur = today && SLOTS.find(([a,b]) => min >= a && min < b);
+  const next = today && SLOTS.find(([a]) => min < a);
+  if (cur) { state = "open"; text = T("open.now") + hm(cur[1]); }
+  else if (next) { state = "closed"; text = T("open.later") + hm(next[0]); }
+  else {
+    state = "closed";
+    let d = (day + 1) % 7, n = 1;
+    while (!OPEN_DAYS.includes(d)) { d = (d + 1) % 7; n++; }
+    text = T("open.closed") + (n === 1 ? T("tomorrow") : (lang === "fr" ? days[d].toLowerCase() : days[d]) + (lang === "de" ? " um " : lang === "en" ? " at " : " à ") + "11:30");
+  }
+  ["1","2"].forEach(i => {
+    document.getElementById("status" + i).textContent = text;
+    document.getElementById("dot" + i).className = "status-dot " + state;
+  });
+}
+
+// gallery + lightbox
+const gal = document.getElementById("gal");
+GAL.forEach(([id, alt, cls], i) => {
+  const b = document.createElement("button");
+  if (cls) b.className = cls;
+  b.innerHTML = `<img src="${PH}w_900,c_fill,q_auto,f_auto/${id}.jpg" alt="${alt}" loading="lazy">`;
+  b.onclick = () => openLb(i);
+  gal.appendChild(b);
+});
+const lb = document.getElementById("lb"), lbimg = document.getElementById("lbimg");
+let lbi = 0;
+function openLb(i){ lbi = (i + GAL.length) % GAL.length; lbimg.src = `${PH}w_1800,q_auto,f_auto/${GAL[lbi][0]}.jpg`; lbimg.alt = GAL[lbi][1]; lb.classList.add("on"); }
+lb.querySelector(".lb-close").onclick = () => lb.classList.remove("on");
+lb.querySelector(".lb-prev").onclick = e => { e.stopPropagation(); openLb(lbi - 1); };
+lb.querySelector(".lb-next").onclick = e => { e.stopPropagation(); openLb(lbi + 1); };
+lb.onclick = e => { if (e.target === lb) lb.classList.remove("on"); };
+document.addEventListener("keydown", e => {
+  if (!lb.classList.contains("on")) return;
+  if (e.key === "Escape") lb.classList.remove("on");
+  if (e.key === "ArrowLeft") openLb(lbi - 1);
+  if (e.key === "ArrowRight") openLb(lbi + 1);
+});
+
+// header, burger, language, reveal
+const header = document.getElementById("top");
+const onScroll = () => header.classList.toggle("solid", scrollY > 40);
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+const links = document.getElementById("links");
+document.getElementById("burger").onclick = () => { links.classList.toggle("open"); header.classList.add("solid"); };
+links.querySelectorAll("a").forEach(a => a.onclick = () => links.classList.remove("open"));
+document.querySelectorAll(".lang button").forEach(b => b.onclick = () => {
+  lang = b.dataset.lang; try { localStorage.setItem("lc-lang", lang); } catch(e) {}
+  applyLang();
+});
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+document.getElementById("year").textContent = new Date().getFullYear();
+applyLang();
+setInterval(renderHours, 60000);
+</script>
+</body>
+</html>
