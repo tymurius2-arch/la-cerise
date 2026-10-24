@@ -158,9 +158,9 @@ header.solid .lang button{color:var(--muted)}
 
 /* hero */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#3a0d14}
-.hero-bg{position:absolute;inset:0;background:url("https://cdn.thefork.com/tf-lab/image/upload/w_2000,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/7d54034c-b264-4084-9c62-0c910d4ffc26.jpg") center/cover;transform:scale(1.06);animation:zoom 18s ease-out forwards}
+.hero-bg{position:absolute;inset:0;background:url("img/ribs-ardoise.jpg") 50% 60%/cover;transform:scale(1.06);animation:zoom 18s ease-out forwards}
 @keyframes zoom{to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,8,14,.55) 0%,rgba(40,8,14,.25) 40%,rgba(40,8,14,.85) 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(30,6,10,.72) 0%,rgba(30,6,10,.35) 45%,rgba(30,6,10,0) 75%),linear-gradient(180deg,rgba(40,8,14,.55) 0%,rgba(40,8,14,.2) 40%,rgba(40,8,14,.85) 100%)}
 .hero-inner{position:relative;z-index:1;padding:140px 0 72px}
 .hero h1{font-size:clamp(3.4rem,11vw,8rem);font-weight:700;letter-spacing:-.01em;margin:.6rem 0 .4rem}
 .hero h1 em{font-style:italic;font-weight:500;color:#ffd5dc}
@@ -226,7 +226,9 @@ header.solid .lang button{color:var(--muted)}
 .note{font-size:.85rem;color:var(--muted);font-style:italic;margin-top:1rem}
 
 /* gallery */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px;margin-top:2.6rem}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;grid-auto-flow:dense;gap:14px;margin-top:2.6rem}
+.gal-note{margin-top:1rem;font-size:.85rem;color:var(--muted)}
+.gal-note a{color:var(--cherry-2)}
 .gallery button{border:0;padding:0;cursor:zoom-in;border-radius:14px;overflow:hidden;background:var(--paper)}
 .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .gallery button:hover img{transform:scale(1.05)}
@@ -282,6 +284,7 @@ footer.site a:hover{color:#fff}
 .reveal.in{opacity:1;transform:none}
 
 @media (max-width:960px){
+  .hero-bg{background-image:url("img/ribs-bbq.jpg");background-position:50% 70%}
   .nav .btn,.top-lang,.burger-label{display:none}
   .drawer-inner{grid-template-columns:1fr;gap:30px;align-items:start;padding:96px 0 28px}
   .drawer-photo{display:none}
@@ -354,11 +357,11 @@ footer.site a:hover{color:#fff}
       <aside class="drawer-side">
         <div class="drawer-photo">
           <div class="frame">
-            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/ff7f9ebf-2f78-428a-aa60-9f87bae7df3b.jpg" alt="" class="on" loading="lazy">
-            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/074bfad2-8098-469a-b3f3-ef52d44b248b.jpg" alt="" loading="lazy">
-            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/98346b73-aeb9-4971-aaee-bb8818e61800.jpg" alt="" loading="lazy">
-            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/6a0fee01-a952-450d-9b1d-41ac2105825b.jpg" alt="" loading="lazy">
-            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/7d54034c-b264-4084-9c62-0c910d4ffc26.jpg" alt="" loading="lazy">
+            <img src="img/salle-cheminee.jpg" alt="" class="on" loading="lazy">
+            <img src="img/ribs-ardoise.jpg" alt="" loading="lazy">
+            <img src="img/salle-lampe-cerise.jpg" alt="" loading="lazy">
+            <img src="img/tarte-griottes.jpg" alt="" loading="lazy">
+            <img src="img/enseigne-nuit.jpg" alt="" loading="lazy">
           </div>
           <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="sealPath" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><circle cx="60" cy="60" r="58" fill="#faf5ee"/><text><textPath href="#sealPath" textLength="286" lengthAdjust="spacing">LA CERISE · SCHILTIGHEIM · RESTAURANT ·</textPath></text><use href="#cherry" x="34" y="40" width="52" height="40"/></svg>
         </div>
@@ -382,7 +385,7 @@ footer.site a:hover{color:#fff}
 </header>
 
 <section class="hero">
-  <div class="hero-bg" role="img" aria-label="Terrasse de La Cerise"></div>
+  <div class="hero-bg" role="img" aria-label="Ribs de La Cerise"></div>
   <div class="wrap hero-inner">
     <div class="eyebrow" data-i18n="hero.eyebrow">Schiltigheim · Près du vieux Schilick</div>
     <h1>La <em>Cerise</em></h1>
@@ -402,8 +405,8 @@ footer.site a:hover{color:#fff}
 <section class="section" id="about">
   <div class="wrap about">
     <div class="about-photos reveal">
-      <img src="https://cdn.thefork.com/tf-lab/image/upload/w_1000,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/ff7f9ebf-2f78-428a-aa60-9f87bae7df3b.jpg" alt="Salle de La Cerise, murs en pierre et bois" loading="lazy">
-      <img src="https://cdn.thefork.com/tf-lab/image/upload/w_700,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/6a0fee01-a952-450d-9b1d-41ac2105825b.jpg" alt="Tarte flambée gratinée" loading="lazy">
+      <img src="img/salle-cheminee.jpg" alt="La salle de La Cerise, coin cheminée" loading="lazy">
+      <img src="img/salle-lampe-cerise.jpg" alt="Applique en forme de cerises sur le mur en pierre" loading="lazy">
     </div>
     <div class="reveal">
       <div class="eyebrow" data-i18n="about.eyebrow">Bienvenue</div>
@@ -426,15 +429,15 @@ footer.site a:hover{color:#fff}
     <p class="lead" data-i18n="sp.lead">Trois raisons de revenir — et nos clients reviennent souvent.</p>
     <div class="cards">
       <article class="card reveal">
-        <div class="ph"><img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/074bfad2-8098-469a-b3f3-ef52d44b248b.jpg" alt="Ribs BBQ miel et frites" loading="lazy"></div>
+        <div class="ph"><img src="img/ribs-bbq.jpg" alt="Ribs BBQ miel sur ardoise et frites" loading="lazy"></div>
         <div class="body"><h3 data-i18n="sp1.t">Nos ribs</h3><p data-i18n="sp1.d">Sept recettes : BBQ miel, piquant, munster, roquefort, ail & persil, moutarde à l'ancienne, curry.</p><div class="price"><span data-i18n="w.from">dès</span> 22,5 €</div></div>
       </article>
       <article class="card reveal">
-        <div class="ph"><img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/customer/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/988f0aff-3405-4a6f-8956-610e2adfd698.jpg" alt="Tarte flambée forestière" loading="lazy"></div>
+        <div class="ph"><img src="img/tarte-flambee.jpg" alt="Tarte flambée traditionnelle" loading="lazy"></div>
         <div class="body"><h3 data-i18n="sp2.t">Tartes flambées</h3><p data-i18n="sp2.d">La tradition alsacienne : crème, oignons, lardons — en version gratinée, forestière, munster…</p><div class="price"><span data-i18n="w.from">dès</span> 9 €</div></div>
       </article>
       <article class="card reveal">
-        <div class="ph"><img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/customer/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/2906496b-3675-4219-a4b6-3825f67703fc.jpg" alt="Mousse au chocolat maison" loading="lazy"></div>
+        <div class="ph"><img src="img/tarte-griottes.jpg" alt="Tarte flambée aux griottes" loading="lazy"></div>
         <div class="body"><h3 data-i18n="sp3.t">La touche cerise</h3><p data-i18n="sp3.d">Tarte flambée aux griottes, bière Meteor cerise et notre liqueur de griottes maison.</p><div class="price">5 – 12,5 €</div></div>
       </article>
     </div>
@@ -461,6 +464,7 @@ footer.site a:hover{color:#fff}
     <div class="eyebrow" data-i18n="g.eyebrow">En images</div>
     <h2 data-i18n="g.title">Un coin de bonheur à Schilick</h2>
     <div class="gallery" id="gal"></div>
+    <p class="gal-note"><span data-i18n="g.note">Photos partagées par nos clients sur</span> <a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" target="_blank" rel="noopener">Google Maps</a> &amp; <a href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener">TheFork</a>.</p>
   </div>
 </section>
 
@@ -549,7 +553,7 @@ const I18N = {
     "sp3.t":"The cherry touch","sp3.d":"Morello cherry tarte flambée, Meteor cherry beer and our homemade cherry liqueur.",
     "m.eyebrow":"Our menu","m.title":"The menu","m.lead":"Average price per meal: €22. All main dishes come with a side of your choice.",
     "m.note":"Indicative menu, may change with the seasons. Savoury tartes flambées available with turkey on request.",
-    "g.eyebrow":"In pictures","g.title":"A happy corner of Schilick",
+    "g.eyebrow":"In pictures","g.note":"Photos shared by our guests on","g.title":"A happy corner of Schilick",
     "r.eyebrow":"Guest reviews","r.title":"They say it better than us","r.food":"Food · TheFork","r.service":"Service · TheFork","r.ambiance":"Atmosphere · TheFork",
     "i.eyebrow":"Practical info","i.title":"Come and see us",
     "tab.food":"Dishes","tab.flamm":"Tartes flambées","tab.desserts":"Desserts","tab.drinks":"Drinks","tab.wines":"Wines",
@@ -577,7 +581,7 @@ const I18N = {
     "sp3.t":"Der Kirsch-Moment","sp3.d":"Flammkuchen mit Sauerkirschen, Meteor-Kirschbier und unser hausgemachter Kirschlikör.",
     "m.eyebrow":"Die Karte","m.title":"Unsere Speisekarte","m.lead":"Durchschnittspreis pro Mahlzeit: 22 €. Alle Hauptgerichte mit Beilage nach Wahl.",
     "m.note":"Unverbindliche Karte, kann sich je nach Saison ändern. Herzhafte Flammkuchen auf Wunsch mit Pute.",
-    "g.eyebrow":"In Bildern","g.title":"Ein Glücksort in Schilick",
+    "g.eyebrow":"In Bildern","g.note":"Fotos unserer Gäste auf","g.title":"Ein Glücksort in Schilick",
     "r.eyebrow":"Gästebewertungen","r.title":"Sie sagen es besser als wir","r.food":"Küche · TheFork","r.service":"Service · TheFork","r.ambiance":"Ambiente · TheFork",
     "i.eyebrow":"Praktische Infos","i.title":"Besuchen Sie uns",
     "tab.food":"Gerichte","tab.flamm":"Flammkuchen","tab.desserts":"Desserts","tab.drinks":"Getränke","tab.wines":"Weine",
@@ -760,15 +764,22 @@ const MENU = [
 ];
 
 const PH = "https://cdn.thefork.com/tf-lab/image/upload/";
+// Local photos come from guests' reviews on Google Maps; the others from TheFork.
+const tf = (id, w) => `${PH}w_${w},c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/${id}.jpg`;
 const GAL = [
-  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/20cc43de-dfb6-4aa2-a0e9-16e97e7ab3c5","Ribs caramélisés et frites","big"],
-  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/98346b73-aeb9-4971-aaee-bb8818e61800","Terrasse",""],
-  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/09de3592-9f15-4b86-b160-2654ab3b6bf3","Le bar","tall"],
-  ["customer/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/ab3f98ce-0cd5-4264-bf44-87c47dc2efe2","Aubergine rôtie et fish & chips",""],
-  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/a44a6f3a-159a-47fd-839f-d72ccf3449fe","La salle",""],
-  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/7c1e5d33-7a6d-495f-9440-15347e3643d0","Table en terrasse",""],
-  ["restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/6a0fee01-a952-450d-9b1d-41ac2105825b","Tarte flambée",""],
-  ["customer/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/0c7e6bbe-ab3f-4a81-97f4-698367637f4c","Sandwich au saumon et frites",""]
+  ["img/ribs-ardoise.jpg","Ribs BBQ sur ardoise","big"],
+  ["img/salle-lampe-cerise.jpg","Applique cerises sur le mur en pierre","tall"],
+  ["img/tarte-griottes.jpg","Tarte flambée aux griottes",""],
+  ["img/onglet.jpg","Onglet de bœuf, beurre maître d'hôtel","tall"],
+  ["img/ribs-munster.jpg","Ribs sauce crème munster",""],
+  ["img/salle-cheminee.jpg","Coin cheminée dans la salle","tall"],
+  ["img/tarte-myrtilles.jpg","Tarte flambée aux myrtilles",""],
+  ["img/jarret-ribs.jpg","Jarret et salade de pommes de terre",""],
+  ["img/enseigne-nuit.jpg","L'enseigne La Cerise le soir","tall"],
+  ["img/tarte-flambee.jpg","Tarte flambée traditionnelle",""],
+  [tf("98346b73-aeb9-4971-aaee-bb8818e61800",1400),"La terrasse",""],
+  ["img/entree.jpg","L'entrée du restaurant",""],
+  [tf("09de3592-9f15-4b86-b160-2654ab3b6bf3",1400),"Le bar",""]
 ];
 
 let lang = "fr";
@@ -853,13 +864,13 @@ const gal = document.getElementById("gal");
 GAL.forEach(([id, alt, cls], i) => {
   const b = document.createElement("button");
   if (cls) b.className = cls;
-  b.innerHTML = `<img src="${PH}w_900,c_fill,q_auto,f_auto/${id}.jpg" alt="${alt}" loading="lazy">`;
+  b.innerHTML = `<img src="${id}" alt="${alt}" loading="lazy">`;
   b.onclick = () => openLb(i);
   gal.appendChild(b);
 });
 const lb = document.getElementById("lb"), lbimg = document.getElementById("lbimg");
 let lbi = 0;
-function openLb(i){ lbi = (i + GAL.length) % GAL.length; lbimg.src = `${PH}w_1800,q_auto,f_auto/${GAL[lbi][0]}.jpg`; lbimg.alt = GAL[lbi][1]; lb.classList.add("on"); }
+function openLb(i){ lbi = (i + GAL.length) % GAL.length; lbimg.src = GAL[lbi][0]; lbimg.alt = GAL[lbi][1]; lb.classList.add("on"); }
 lb.querySelector(".lb-close").onclick = () => lb.classList.remove("on");
 lb.querySelector(".lb-prev").onclick = e => { e.stopPropagation(); openLb(lbi - 1); };
 lb.querySelector(".lb-next").onclick = e => { e.stopPropagation(); openLb(lbi + 1); };
