@@ -339,7 +339,7 @@ footer.site a:hover{color:#fff}
       <div class="lang top-lang" role="group" aria-label="Langue">
         <button data-lang="fr" class="on">FR</button><button data-lang="en">EN</button><button data-lang="de">DE</button>
       </div>
-      <a class="btn btn-primary top-book" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener" data-i18n="cta.book">Réserver</a>
+      <a class="btn btn-primary top-book" href="https://www.thefork.fr/restaurant/la-cerise-r814532" data-href="booking" target="_blank" rel="noopener" data-i18n="cta.book">Réserver</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
         <span class="burger-label" data-i18n="nav.menuBtn">Menu</span>
         <span class="burger-box"><i></i><i></i><i></i></span>
@@ -372,16 +372,16 @@ footer.site a:hover{color:#fff}
         </div>
         <div class="drawer-card">
           <div class="drawer-status"><span class="status-dot" id="dot3"></span><span id="status3">…</span></div>
-          <div class="drawer-hours"><span data-i18n="nav.days">Du mardi au samedi</span><b>11:30 – 14:30 · 18:30 – 22:30</b></div>
-          <a href="tel:+33388478386" class="drawer-line"><svg><use href="#i-phone"/></svg>+33 3 88 47 83 86</a>
-          <a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" target="_blank" rel="noopener" class="drawer-line"><svg><use href="#i-pin"/></svg>13 rue Neuve, 67300 Schiltigheim</a>
+          <div class="drawer-hours"><span id="hoursDays">Du mardi au samedi</span><b id="hoursRange">11:30 – 14:30 · 18:30 – 22:30</b></div>
+          <a href="tel:+33388478386" data-href="tel" class="drawer-line"><svg><use href="#i-phone"/></svg><span data-c="phone">+33 3 88 47 83 86</span></a>
+          <a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" data-href="maps" target="_blank" rel="noopener" class="drawer-line"><svg><use href="#i-pin"/></svg><span data-c="addressFull">13 rue Neuve, 67300 Schiltigheim</span></a>
         </div>
         <div class="drawer-actions">
-          <a class="btn btn-light" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
+          <a class="btn btn-light" href="https://www.thefork.fr/restaurant/la-cerise-r814532" data-href="booking" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
           <div class="lang drawer-lang" role="group" aria-label="Langue">
             <button data-lang="fr" class="on">FR</button><button data-lang="en">EN</button><button data-lang="de">DE</button>
           </div>
-          <a class="drawer-fb" href="https://facebook.com/la.cerise.restaurant" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+          <a class="drawer-fb" href="https://facebook.com/la.cerise.restaurant" data-href="facebook" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
         </div>
       </aside>
     </div>
@@ -390,19 +390,19 @@ footer.site a:hover{color:#fff}
 </header>
 
 <section class="hero">
-  <div class="hero-bg" role="img" aria-label="La salle de La Cerise"></div>
+  <div class="hero-bg" id="heroBg" role="img" aria-label="La salle de La Cerise"></div>
   <div class="wrap hero-inner">
     <div class="notice" id="notice" hidden><b>✦</b><span></span></div>
     <div class="eyebrow" data-i18n="hero.eyebrow">Schiltigheim · Près du vieux Schilick</div>
     <h1>La <em>Cerise</em></h1>
     <p class="tag" data-i18n="hero.tag">Ribs fondants, tartes flambées croustillantes et vins d'Alsace — servis avec le sourire sur notre terrasse ombragée.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
+      <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" data-href="booking" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
       <a class="btn btn-ghost" href="#menu" data-i18n="cta.menu">Voir la carte</a>
     </div>
     <div class="badges">
-      <div class="badge"><b>4,8</b><div><div class="stars">★★★★★</div>Google · 241 <span data-i18n="w.reviews">avis</span></div></div>
-      <div class="badge"><b>9,4</b><div>TheFork<br>729 <span data-i18n="w.reviews">avis</span></div></div>
+      <div class="badge"><b data-r="google">4,8</b><div><div class="stars">★★★★★</div>Google · <span data-r="googleCount">241</span> <span data-i18n="w.reviews">avis</span></div></div>
+      <div class="badge"><b data-r="fork">9,4</b><div>TheFork<br><span data-r="forkCount">729</span> <span data-i18n="w.reviews">avis</span></div></div>
       <div class="badge"><span class="status-dot" id="dot1"></span><div id="status1">…</div></div>
     </div>
   </div>
@@ -411,8 +411,8 @@ footer.site a:hover{color:#fff}
 <section class="section" id="about">
   <div class="wrap about">
     <div class="about-photos reveal">
-      <img src="img/salle-lampe-cerise.jpg" alt="Applique en forme de cerises sur le mur en pierre" loading="lazy">
-      <img src="img/onglet.jpg" alt="Onglet de bœuf, beurre maître d'hôtel" loading="lazy">
+      <img data-ph="about1" src="img/salle-lampe-cerise.jpg" alt="La Cerise" loading="lazy">
+      <img data-ph="about2" src="img/onglet.jpg" alt="La Cerise" loading="lazy">
     </div>
     <div class="reveal">
       <div class="eyebrow" data-i18n="about.eyebrow">Bienvenue</div>
@@ -435,16 +435,16 @@ footer.site a:hover{color:#fff}
     <p class="lead" data-i18n="sp.lead">Trois raisons de revenir — et nos clients reviennent souvent.</p>
     <div class="cards">
       <article class="card reveal">
-        <div class="ph"><img src="img/ribs-bbq.jpg" alt="Ribs BBQ miel sur ardoise et frites" loading="lazy"></div>
-        <div class="body"><h3 data-i18n="sp1.t">Nos ribs</h3><p data-i18n="sp1.d">Sept recettes : BBQ miel, piquant, munster, roquefort, ail & persil, moutarde à l'ancienne, curry.</p><div class="price"><span data-i18n="w.from">dès</span> 22,5 €</div></div>
+        <div class="ph"><img data-ph="sp1" src="img/ribs-bbq.jpg" alt="Ribs BBQ miel sur ardoise et frites" loading="lazy"></div>
+        <div class="body"><h3 data-i18n="sp1.t">Nos ribs</h3><p data-i18n="sp1.d">Sept recettes : BBQ miel, piquant, munster, roquefort, ail & persil, moutarde à l'ancienne, curry.</p><div class="price" data-i18n="sp1.p">dès 22,5 €</div></div>
       </article>
       <article class="card reveal">
-        <div class="ph"><img src="img/tarte-flambee.jpg" alt="Tarte flambée traditionnelle" loading="lazy"></div>
-        <div class="body"><h3 data-i18n="sp2.t">Tartes flambées</h3><p data-i18n="sp2.d">La tradition alsacienne : crème, oignons, lardons — en version gratinée, forestière, munster…</p><div class="price"><span data-i18n="w.from">dès</span> 9 €</div></div>
+        <div class="ph"><img data-ph="sp2" src="img/tarte-flambee.jpg" alt="Tarte flambée traditionnelle" loading="lazy"></div>
+        <div class="body"><h3 data-i18n="sp2.t">Tartes flambées</h3><p data-i18n="sp2.d">La tradition alsacienne : crème, oignons, lardons — en version gratinée, forestière, munster…</p><div class="price" data-i18n="sp2.p">dès 9 €</div></div>
       </article>
       <article class="card reveal">
-        <div class="ph"><img src="img/tarte-griottes.jpg" alt="Tarte flambée aux griottes" loading="lazy"></div>
-        <div class="body"><h3 data-i18n="sp3.t">La touche cerise</h3><p data-i18n="sp3.d">Tarte flambée aux griottes, bière Meteor cerise et notre liqueur de griottes maison.</p><div class="price">5 – 12,5 €</div></div>
+        <div class="ph"><img data-ph="sp3" src="img/tarte-griottes.jpg" alt="Tarte flambée aux griottes" loading="lazy"></div>
+        <div class="body"><h3 data-i18n="sp3.t">La touche cerise</h3><p data-i18n="sp3.d">Tarte flambée aux griottes, bière Meteor cerise et notre liqueur de griottes maison.</p><div class="price" data-i18n="sp3.p">5 – 12,5 €</div></div>
       </article>
     </div>
   </div>
@@ -470,7 +470,7 @@ footer.site a:hover{color:#fff}
     <div class="eyebrow" data-i18n="g.eyebrow">En images</div>
     <h2 data-i18n="g.title">Un coin de bonheur à Schilick</h2>
     <div class="gallery" id="gal"></div>
-    <p class="gal-note"><span data-i18n="g.note">Photos partagées par nos clients sur</span> <a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" target="_blank" rel="noopener">Google Maps</a> &amp; <a href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener">TheFork</a>.</p>
+    <p class="gal-note"><span data-i18n="g.note">Photos partagées par nos clients sur</span> <a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" data-href="maps" target="_blank" rel="noopener">Google Maps</a> &amp; <a href="https://www.thefork.fr/restaurant/la-cerise-r814532" data-href="booking" target="_blank" rel="noopener">TheFork</a>.</p>
   </div>
 </section>
 
@@ -479,16 +479,12 @@ footer.site a:hover{color:#fff}
     <div class="eyebrow" data-i18n="r.eyebrow">Avis clients</div>
     <h2 data-i18n="r.title">Ils en parlent mieux que nous</h2>
     <div class="scores">
-      <div class="score"><b>4,8</b><span>Google · 241 <span data-i18n="w.reviews">avis</span></span></div>
-      <div class="score"><b>9,5</b><span data-i18n="r.food">Cuisine · TheFork</span></div>
-      <div class="score"><b>9,6</b><span data-i18n="r.service">Service · TheFork</span></div>
-      <div class="score"><b>9,2</b><span data-i18n="r.ambiance">Ambiance · TheFork</span></div>
+      <div class="score"><b data-r="google">4,8</b><span>Google · <span data-r="googleCount">241</span> <span data-i18n="w.reviews">avis</span></span></div>
+      <div class="score"><b data-r="food">9,5</b><span data-i18n="r.food">Cuisine · TheFork</span></div>
+      <div class="score"><b data-r="service">9,6</b><span data-i18n="r.service">Service · TheFork</span></div>
+      <div class="score"><b data-r="ambiance">9,2</b><span data-i18n="r.ambiance">Ambiance · TheFork</span></div>
     </div>
-    <div class="quotes">
-      <figure class="quote reveal"><p>Les ribs étaient particulièrement tendres et délicieux. La viande se détachait toute seule des os. Nous nous sommes régalés.</p><footer><span>Carine A.</span><span class="stars">★★★★★</span></footer></figure>
-      <figure class="quote reveal"><p>Very nice and attentive service & chef; super dog-friendly and the food was amazing. Definitely coming back.</p><footer><span>Jan-Niklas K.</span><span class="stars">★★★★★</span></footer></figure>
-      <figure class="quote reveal"><p>Cadre agréable et clair, plats du jour copieux et délicieux, personnel très à l'écoute des clients. Nous recommandons vivement.</p><footer><span>Mireille C.</span><span class="stars">★★★★★</span></footer></figure>
-    </div>
+    <div class="quotes" id="quotes"></div>
   </div>
 </section>
 
@@ -500,18 +496,18 @@ footer.site a:hover{color:#fff}
       <div class="status"><span class="status-dot" id="dot2"></span><span id="status2">…</span></div>
       <ul class="hours" id="hours"></ul>
       <ul class="contact-list">
-        <li><a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-pin"/></svg></span>13 rue Neuve, 67300 Schiltigheim</a></li>
-        <li><a href="tel:+33388478386"><span class="ic"><svg><use href="#i-phone"/></svg></span>+33 3 88 47 83 86</a></li>
-        <li><a href="mailto:info@laceriseschilick.fr"><span class="ic"><svg><use href="#i-mail"/></svg></span>info@laceriseschilick.fr</a></li>
-        <li><a href="https://facebook.com/la.cerise.restaurant" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-fb"/></svg></span>facebook.com/la.cerise.restaurant</a></li>
+        <li><a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" data-href="maps" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-pin"/></svg></span><span data-c="addressFull">13 rue Neuve, 67300 Schiltigheim</span></a></li>
+        <li><a href="tel:+33388478386" data-href="tel"><span class="ic"><svg><use href="#i-phone"/></svg></span><span data-c="phone">+33 3 88 47 83 86</span></a></li>
+        <li><a href="mailto:info@laceriseschilick.fr" data-href="mail"><span class="ic"><svg><use href="#i-mail"/></svg></span><span data-c="email">info@laceriseschilick.fr</span></a></li>
+        <li><a href="https://facebook.com/la.cerise.restaurant" data-href="facebook" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-fb"/></svg></span><span data-c="facebookLabel">facebook.com/la.cerise.restaurant</span></a></li>
       </ul>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
-        <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&destination=La+Cerise+13+Rue+Neuve+67300+Schiltigheim" target="_blank" rel="noopener" data-i18n="cta.route">Itinéraire</a>
+        <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" data-href="booking" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&destination=La+Cerise+13+Rue+Neuve+67300+Schiltigheim" data-href="route" target="_blank" rel="noopener" data-i18n="cta.route">Itinéraire</a>
       </div>
     </div>
     <div class="map reveal">
-      <iframe title="Carte" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=La+Cerise,+13+Rue+Neuve,+67300+Schiltigheim&z=16&output=embed"></iframe>
+      <iframe id="mapFrame" title="Carte" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=La+Cerise,+13+Rue+Neuve,+67300+Schiltigheim&z=16&output=embed"></iframe>
     </div>
   </div>
 </section>
@@ -520,17 +516,17 @@ footer.site a:hover{color:#fff}
   <div class="wrap foot">
     <a href="#" class="brand"><svg><use href="#cherry"/></svg>La Cerise</a>
     <div class="foot-links">
-      <a href="tel:+33388478386">+33 3 88 47 83 86</a>
-      <a href="mailto:info@laceriseschilick.fr">info@laceriseschilick.fr</a>
-      <a href="https://facebook.com/la.cerise.restaurant" target="_blank" rel="noopener">Facebook</a>
+      <a href="tel:+33388478386" data-href="tel"><span data-c="phone">+33 3 88 47 83 86</span></a>
+      <a href="mailto:info@laceriseschilick.fr" data-href="mail"><span data-c="email">info@laceriseschilick.fr</span></a>
+      <a href="https://facebook.com/la.cerise.restaurant" data-href="facebook" target="_blank" rel="noopener">Facebook</a>
     </div>
     <div>© <span id="year"></span> La Cerise · Schiltigheim · <a class="owner-link" href="admin.html" rel="nofollow">Espace propriétaire</a></div>
   </div>
 </footer>
 
 <div class="mbar">
-  <a class="btn call" href="tel:+33388478386"><svg><use href="#i-phone"/></svg><span data-i18n="cta.call">Appeler</span></a>
-  <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.book">Réserver</span></a>
+  <a class="btn call" href="tel:+33388478386" data-href="tel"><svg><use href="#i-phone"/></svg><span data-i18n="cta.call">Appeler</span></a>
+  <a class="btn btn-primary" href="https://www.thefork.fr/restaurant/la-cerise-r814532" data-href="booking" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.book">Réserver</span></a>
 </div>
 
 <div class="lightbox" id="lb" role="dialog" aria-modal="true">
@@ -542,6 +538,7 @@ footer.site a:hover{color:#fff}
 
 <script src="firebase-config.js"></script>
 <script src="menu-data.js"></script>
+<script src="site-data.js"></script>
 <script>
 const I18N = {
   fr: {},
@@ -571,7 +568,7 @@ const I18N = {
     "g.alsace":"Alsace wines","g.red":"Red wines","g.rose":"Rosé wines","g.white":"White wines","g.bubbles":"Bubbles",
     "chip.house":"homemade","chip.star":"signature",
     "open.now":"Open now · until ","open.later":"Closed · opens today at ","open.closed":"Closed · reopens ","open.tue":"Tuesday at 11:30",
-    "closed":"Closed","days":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"tomorrow":"tomorrow at 11:30"
+    "closed":"Closed","days":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"tomorrow":"tomorrow at ","at":" at ","today":"Today","range":"{a} to {b}"
   },
   de: {
     "nav.about":"Das Restaurant","nav.menu":"Speisekarte","nav.gallery":"Fotos","nav.reviews":"Bewertungen","nav.info":"Infos & Anfahrt","nav.menuBtn":"Menü","nav.explore":"Entdecken","nav.days":"Dienstag bis Samstag",
@@ -599,7 +596,7 @@ const I18N = {
     "g.alsace":"Elsässer Weine","g.red":"Rotweine","g.rose":"Roséweine","g.white":"Weißweine","g.bubbles":"Schaumweine",
     "chip.house":"hausgemacht","chip.star":"Spezialität",
     "open.now":"Jetzt geöffnet · bis ","open.later":"Geschlossen · öffnet heute um ","open.closed":"Geschlossen · wieder geöffnet ","open.tue":"Dienstag um 11:30",
-    "closed":"Geschlossen","days":["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],"tomorrow":"morgen um 11:30"
+    "closed":"Geschlossen","days":["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],"tomorrow":"morgen um ","at":" um ","today":"Heute","range":"{a} bis {b}"
   }
 };
 const FR = {
@@ -610,30 +607,27 @@ const FR = {
   "g.alsace":"Les vins d'Alsace","g.red":"Vins rouges","g.rose":"Vins rosés","g.white":"Vins blancs","g.bubbles":"Les bulles",
   "chip.house":"maison","chip.star":"spécialité",
   "open.now":"Ouvert maintenant · jusqu'à ","open.later":"Fermé · ouvre aujourd'hui à ","open.closed":"Fermé · réouverture ","open.tue":"mardi à 11:30",
-  "closed":"Fermé","days":["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],"tomorrow":"demain à 11:30"
+  "closed":"Fermé","days":["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"],"tomorrow":"demain à ","at":" à ","today":"Aujourd'hui","range":"Du {a} au {b}"
 };
 
 // [name, price, description?, chip?]
 let MENU = window.LC_MENU_DEFAULT;
 
-const PH = "https://cdn.thefork.com/tf-lab/image/upload/";
-// Local photos come from guests' reviews on Google Maps; the others from TheFork.
-const tf = (id, w) => `${PH}w_${w},c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/${id}.jpg`;
-const GAL = [
-  ["img/ribs-ardoise.jpg","Ribs BBQ sur ardoise","big"],
-  ["img/salle-lampe-cerise.jpg","Applique cerises sur le mur en pierre","tall"],
-  ["img/tarte-griottes.jpg","Tarte flambée aux griottes",""],
-  ["img/onglet.jpg","Onglet de bœuf, beurre maître d'hôtel","tall"],
-  ["img/ribs-munster.jpg","Ribs sauce crème munster",""],
-  ["img/salle-cheminee.jpg","Coin cheminée dans la salle","tall"],
-  ["img/tarte-myrtilles.jpg","Tarte flambée aux myrtilles",""],
-  ["img/jarret-ribs.jpg","Jarret et salade de pommes de terre",""],
-  ["img/enseigne-nuit.jpg","L'enseigne La Cerise le soir","tall"],
-  ["img/tarte-flambee.jpg","Tarte flambée traditionnelle",""],
-  [tf("98346b73-aeb9-4971-aaee-bb8818e61800",1400),"La terrasse",""],
-  ["img/entree.jpg","L'entrée du restaurant",""],
-  [tf("09de3592-9f15-4b86-b160-2654ab3b6bf3",1400),"Le bar",""]
-];
+// Owner-editable content: defaults from site-data.js, replaced by the owner's version from Firebase.
+const clone = o => JSON.parse(JSON.stringify(o));
+const DEF = window.LC_SETTINGS_DEFAULT;
+let S = clone(DEF);
+const TEXT_DEF = Object.fromEntries(window.LC_TEXTS.map(t => [t.k, t]));
+let TXT = null;          // owner's texts: { fr: {key: text}, en: {...}, de: {...} }
+let UPLOADED = {};       // owner's uploaded photos: id -> data URL
+const ALT = {"img/ribs-ardoise.jpg":"Ribs BBQ sur ardoise","img/salle-lampe-cerise.jpg":"Applique cerises sur le mur en pierre","img/tarte-griottes.jpg":"Tarte flambée aux griottes","img/onglet.jpg":"Onglet de bœuf, beurre maître d'hôtel","img/ribs-munster.jpg":"Ribs sauce crème munster","img/salle-cheminee.jpg":"Coin cheminée dans la salle","img/tarte-myrtilles.jpg":"Tarte flambée aux myrtilles","img/jarret-ribs.jpg":"Jarret et salade de pommes de terre","img/enseigne-nuit.jpg":"L'enseigne La Cerise le soir","img/tarte-flambee.jpg":"Tarte flambée traditionnelle","img/entree.jpg":"L'entrée du restaurant","img/ribs-bbq.jpg":"Ribs BBQ miel et frites"};
+const photoSrc = ref => {
+  if (!ref) return "";
+  if (ref.startsWith("up:")) return UPLOADED[ref.slice(3)] || "";
+  return /^(img\/|https:\/\/)/.test(ref) ? ref : "";
+};
+const safeUrl = u => /^https?:\/\//i.test(u || "") ? u : null;
+let GAL = [];
 
 let lang = "fr";
 try { const s = localStorage.getItem("lc-lang"); if (s && I18N[s]) lang = s; } catch(e) {}
@@ -644,11 +638,12 @@ function applyLang(){
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-i18n]").forEach(el => {
     if (!frText.has(el)) frText.set(el, el.textContent);
-    const k = el.dataset.i18n;
-    el.textContent = lang === "fr" ? frText.get(el) : (I18N[lang][k] ?? frText.get(el));
+    const k = el.dataset.i18n, d = TEXT_DEF[k];
+    if (d) el.textContent = (TXT && (TXT[lang]?.[k] || TXT.fr?.[k])) || d[lang] || d.fr;
+    else el.textContent = lang === "fr" ? frText.get(el) : (I18N[lang][k] ?? frText.get(el));
   });
   document.querySelectorAll(".lang button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
-  renderMenu(); renderHours();
+  renderMenu(); renderHours(); renderQuotes();
 }
 
 const esc = v => String(v ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
@@ -656,6 +651,18 @@ const esc = v => String(v ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&l
 // Hooks used by cloud.js when the owner's version of the menu / notice is loaded from Firebase.
 window.LC = {
   setMenu(m){ MENU = m; if (!MENU.some(x => x.tab === curTab)) curTab = MENU[0].tab; renderMenu(); },
+  setSettings(x){
+    if (!x) return;
+    const n = clone(DEF);
+    for (const k of ["contact", "ratings", "photos"]) n[k] = { ...DEF[k], ...(x[k] || {}) };
+    if (Array.isArray(x.hours) && x.hours.length === 7) n.hours = x.hours;
+    if (Array.isArray(x.quotes)) n.quotes = x.quotes;
+    if (Array.isArray(x.gallery)) n.gallery = x.gallery;
+    S = n; applySettings(); renderHours(); renderQuotes();
+  },
+  setTexts(t){ TXT = t; applyLang(); },
+  setPhotos(map){ UPLOADED = { ...UPLOADED, ...map }; applyPhotos(); renderGallery(); },
+  usedUploads(){ return [...Object.values(S.photos), ...S.gallery].filter(r => r && r.startsWith("up:")).map(r => r.slice(3)); },
   setNotice(info){
     const el = document.getElementById("notice");
     if (!info || !info.show || !info.text) { el.hidden = true; return; }
@@ -678,7 +685,7 @@ function renderMenu(){
     const p = document.createElement("div");
     p.className = "menu-panel" + (sec.tab === curTab ? " on" : "");
     p.innerHTML = '<div class="menu-groups">' + sec.groups.map(gr =>
-      `<div class="group"><h3>${esc(T("g." + gr.g) || gr.g)}${gr.price ? `<small>${esc(gr.price)}</small>` : ""}</h3>` +
+      `<div class="group"><h3>${esc(gr.title || T("g." + gr.g) || gr.g)}${gr.price ? `<small>${esc(gr.price)}</small>` : ""}</h3>` +
       gr.items.map(({n, p: pr, d, c}) =>
         `<div class="dish"><div class="dish-row"><span class="dish-name">${esc(n)}${c && FR["chip." + c] ? `<span class="chip">${T("chip." + c)}</span>` : ""}</span>${pr ? `<span class="dish-dots"></span><span class="dish-price">${esc(pr)}</span>` : ""}</div>${d ? `<div class="dish-desc">${esc(d)}</div>` : ""}</div>`
       ).join("") + "</div>"
@@ -687,53 +694,103 @@ function renderMenu(){
   });
 }
 
-// Opening hours: Tue–Sat, 11:30–14:30 and 18:30–22:30 (Paris time)
-const SLOTS = [[690, 870], [1110, 1350]];
-const OPEN_DAYS = [2,3,4,5,6];
+// Opening hours from S.hours (index 0 = Sunday), Paris time.
 function parisNow(){
   const parts = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Paris",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
   const get = t => parts.find(p => p.type === t).value;
   const day = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(get("weekday"));
   return {day, min: (+get("hour") % 24) * 60 + +get("minute")};
 }
-const hm = m => String(Math.floor(m/60)).padStart(2,"0") + ":" + String(m%60).padStart(2,"0");
+const toMin = t => { const [h, m] = String(t).split(":").map(Number); return (h || 0) * 60 + (m || 0); };
+function daySlots(d){
+  const h = S.hours[d];
+  if (!h || !h.open) return [];
+  return (h.slots || []).filter(x => x && x.o && x.c).map(x => { const a = toMin(x.o); let b = toMin(x.c); if (b <= a) b += 1440; return {a, b, o: x.o, c: x.c}; }).sort((p, q) => p.a - q.a);
+}
+const slotsText = sl => sl.map(x => `${x.o} – ${x.c}`).join(" · ");
+const WEEK = [1,2,3,4,5,6,0];
 function renderHours(){
   const {day, min} = parisNow();
   const days = T("days");
   const ul = document.getElementById("hours"); ul.innerHTML = "";
-  [2,3,4,5,6,0,1].forEach(d => {
-    const li = document.createElement("li");
+  WEEK.forEach(d => {
+    const li = document.createElement("li"), sl = daySlots(d);
     if (d === day) li.className = "today";
-    li.innerHTML = `<span>${days[d]}</span>` + (OPEN_DAYS.includes(d) ? `<span>11:30 – 14:30 · 18:30 – 22:30</span>` : `<span class="closed">${T("closed")}</span>`);
+    li.innerHTML = `<span>${days[d]}</span>` + (sl.length ? `<span>${slotsText(sl)}</span>` : `<span class="closed">${T("closed")}</span>`);
     ul.appendChild(li);
   });
-  let text, state;
-  const today = OPEN_DAYS.includes(day);
-  const cur = today && SLOTS.find(([a,b]) => min >= a && min < b);
-  const next = today && SLOTS.find(([a]) => min < a);
-  if (cur) { state = "open"; text = T("open.now") + hm(cur[1]); }
-  else if (next) { state = "closed"; text = T("open.later") + hm(next[0]); }
+  // open now?
+  let text, state = "closed";
+  const today = daySlots(day), yest = daySlots((day + 6) % 7);
+  const cur = today.find(x => min >= x.a && min < x.b) || yest.find(x => x.b > 1440 && min + 1440 < x.b);
+  const next = today.find(x => min < x.a);
+  if (cur) { state = "open"; text = T("open.now") + cur.c; }
+  else if (next) text = T("open.later") + next.o;
   else {
-    state = "closed";
-    let d = (day + 1) % 7, n = 1;
-    while (!OPEN_DAYS.includes(d)) { d = (d + 1) % 7; n++; }
-    text = T("open.closed") + (n === 1 ? T("tomorrow") : (lang === "fr" ? days[d].toLowerCase() : days[d]) + (lang === "de" ? " um " : lang === "en" ? " at " : " à ") + "11:30");
+    let d = day, n = 0, sl = [];
+    while (n < 7) { d = (d + 1) % 7; n++; sl = daySlots(d); if (sl.length) break; }
+    if (!sl.length) text = T("closed");
+    else text = T("open.closed") + (n === 1 ? T("tomorrow") + sl[0].o : (lang === "fr" ? days[d].toLowerCase() : days[d]) + T("at") + sl[0].o);
   }
   ["1","2","3"].forEach(i => {
     document.getElementById("status" + i).textContent = text;
     document.getElementById("dot" + i).className = "status-dot " + state;
   });
+  // short summary in the burger menu
+  const openDays = WEEK.filter(d => daySlots(d).length);
+  const same = openDays.length && openDays.every(d => slotsText(daySlots(d)) === slotsText(daySlots(openDays[0])));
+  const idx = openDays.map(d => WEEK.indexOf(d));
+  const run = idx.every((v, i) => i === 0 || v === idx[i - 1] + 1);
+  const lc = x => lang === "fr" ? x.toLowerCase() : x;
+  if (same && run) {
+    const a = days[openDays[0]], b = days[openDays[openDays.length - 1]];
+    document.getElementById("hoursDays").textContent = openDays.length === 1 ? a : T("range").replace("{a}", lc(a)).replace("{b}", lc(b)).replace(/^./, c => c.toUpperCase());
+    document.getElementById("hoursRange").textContent = slotsText(daySlots(openDays[0]));
+  } else {
+    document.getElementById("hoursDays").textContent = T("today");
+    document.getElementById("hoursRange").textContent = today.length ? slotsText(today) : T("closed");
+  }
+}
+
+// Contacts, ratings and photos from S
+function applySettings(){
+  const c = S.contact, tel = (c.phone || "").replace(/[^\d+]/g, "");
+  const full = [c.address, c.city].filter(Boolean).join(", ");
+  const vals = { phone: c.phone, email: c.email, addressFull: full, facebookLabel: (c.facebook || "").replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") };
+  document.querySelectorAll("[data-c]").forEach(el => { el.textContent = vals[el.dataset.c] || ""; });
+  const q = encodeURIComponent("La Cerise " + full);
+  const links = { tel: tel ? "tel:" + tel : null, mail: c.email ? "mailto:" + c.email : null, booking: safeUrl(c.booking), facebook: safeUrl(c.facebook), maps: safeUrl(c.maps) || "https://www.google.com/maps/search/?api=1&query=" + q, route: "https://www.google.com/maps/dir/?api=1&destination=" + q };
+  document.querySelectorAll("[data-href]").forEach(el => { const u = links[el.dataset.href]; if (u) el.href = u; });
+  const map = document.getElementById("mapFrame"), mapSrc = `https://www.google.com/maps?q=${q}&z=16&output=embed`;
+  if (full !== "13 rue Neuve, 67300 Schiltigheim" && map.dataset.src !== mapSrc) { map.dataset.src = mapSrc; map.src = mapSrc; }
+  document.querySelectorAll("[data-r]").forEach(el => { el.textContent = S.ratings[el.dataset.r] ?? ""; });
+  applyPhotos(); renderGallery();
+}
+function applyPhotos(){
+  const hero = photoSrc(S.photos.hero);
+  if (hero) document.getElementById("heroBg").style.backgroundImage = `url("${hero}")`;
+  document.querySelectorAll("[data-ph]").forEach(el => { const src = photoSrc(S.photos[el.dataset.ph]); if (src && el.getAttribute("src") !== src) el.src = src; });
+}
+function renderQuotes(){
+  document.getElementById("quotes").innerHTML = (S.quotes || []).filter(x => x && x.text).map(x =>
+    `<figure class="quote reveal in"><p>${esc(x.text)}</p><footer><span>${esc(x.author)}</span><span class="stars">★★★★★</span></footer></figure>`).join("");
 }
 
 // gallery + lightbox
 const gal = document.getElementById("gal");
-GAL.forEach(([id, alt, cls], i) => {
-  const b = document.createElement("button");
-  if (cls) b.className = cls;
-  b.innerHTML = `<img src="${id}" alt="${alt}" loading="lazy">`;
-  b.onclick = () => openLb(i);
-  gal.appendChild(b);
-});
+const SIZES = ["big","tall","","tall","","tall","","","tall","","","",""];
+function renderGallery(){
+  GAL = S.gallery.map(r => [photoSrc(r), ALT[r] || "La Cerise"]).filter(x => x[0]);
+  gal.innerHTML = "";
+  GAL.forEach(([src, alt], i) => {
+    const b = document.createElement("button");
+    const cls = GAL.length >= 6 ? SIZES[i % SIZES.length] : "";
+    if (cls) b.className = cls;
+    b.innerHTML = `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`;
+    b.onclick = () => openLb(i);
+    gal.appendChild(b);
+  });
+}
 const lb = document.getElementById("lb"), lbimg = document.getElementById("lbimg");
 let lbi = 0;
 function openLb(i){ lbi = (i + GAL.length) % GAL.length; lbimg.src = GAL[lbi][0]; lbimg.alt = GAL[lbi][1]; lb.classList.add("on"); }
@@ -781,6 +838,7 @@ document.querySelectorAll(".lang button").forEach(b => b.onclick = () => {
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 document.getElementById("year").textContent = new Date().getFullYear();
+applySettings();
 applyLang();
 setInterval(renderHours, 60000);
 </script>

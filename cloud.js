@@ -1,4 +1,4 @@
-// Connects the public site to Firebase: loads the owner's menu and notice,
+// Connects the public site to Firebase: loads the owner's menu, texts, settings, photos and notice,
 // and counts visits and clicks on "Réserver" / "Appeler" (no personal data).
 const CFG = window.LC_FIREBASE;
 const SDK = "https://www.gstatic.com/firebasejs/10.12.2/";
@@ -16,6 +16,17 @@ async function start() {
   }).catch(() => {});
   fs.getDoc(fs.doc(db, "site", "info")).then(s => {
     if (s.exists()) window.LC.setNotice(s.data());
+  }).catch(() => {});
+  fs.getDoc(fs.doc(db, "site", "texts")).then(s => {
+    if (s.exists()) window.LC.setTexts(s.data());
+  }).catch(() => {});
+  fs.getDoc(fs.doc(db, "site", "settings")).then(async s => {
+    if (!s.exists()) return;
+    window.LC.setSettings(s.data());
+    // the owner's own uploaded photos are stored as separate documents site/photo-<id>
+    const ids = [...new Set(window.LC.usedUploads())];
+    const got = await Promise.all(ids.map(id => fs.getDoc(fs.doc(db, "site", "photo-" + id)).then(p => [id, p.exists() ? p.data().data : ""]).catch(() => [id, ""])));
+    window.LC.setPhotos(Object.fromEntries(got.filter(([, d]) => typeof d === "string" && d.startsWith("data:image/"))));
   }).catch(() => {});
 
   const day = parisDay();
