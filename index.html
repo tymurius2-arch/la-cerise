@@ -88,32 +88,65 @@ header.menu-open .top-lang,header.menu-open .top-book,header.menu-closing .top-l
 .top-lang,.top-book{transition:opacity .3s}
 .drawer{position:fixed;inset:0;z-index:1;background:radial-gradient(120% 90% at 85% 0%,#a3182f 0%,#7a1626 45%,#3a0d14 100%);color:#fff;clip-path:circle(0% at calc(100% - 40px) 36px);transition:clip-path .65s cubic-bezier(.7,0,.2,1) .15s,visibility 0s .8s;visibility:hidden;overflow-y:auto}
 header.menu-open .drawer{clip-path:circle(150% at calc(100% - 40px) 36px);visibility:visible;transition:clip-path .7s cubic-bezier(.7,0,.2,1),visibility 0s}
-.drawer-inner{min-height:100%;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center;padding:110px 0 48px}
-.links{list-style:none;display:grid;gap:4px}
-.links li{opacity:0;transform:translateY(-18px);transition:opacity .25s,transform .3s}
+.drawer.drawer{display:flex;flex-direction:column}
+.drawer-inner{position:relative;flex:1 0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:center;padding:100px 0 36px}
+.drawer-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.drawer-bg::before{content:"";position:absolute;inset:0;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.drawer-bg::after{content:"";position:absolute;width:70vmax;height:70vmax;left:-25vmax;top:-30vmax;border-radius:50%;background:radial-gradient(circle,rgba(255,120,140,.22),transparent 65%)}
+.drawer-cherry{position:absolute;width:62vmin;height:40vmin;right:-6vmin;bottom:-4vmin;filter:brightness(0) invert(1);opacity:.05;transform:rotate(-12deg);animation:float 9s ease-in-out infinite}
+@keyframes float{50%{transform:rotate(-6deg) translateY(-14px)}}
+.drawer-eyebrow{display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem;font:600 .74rem var(--sans);letter-spacing:.28em;text-transform:uppercase;color:#ffc4cd;opacity:0;transition:opacity .2s}
+.drawer-eyebrow span{width:42px;height:1px;background:#ffc4cd}
+header.menu-open .drawer-eyebrow{opacity:1;transition:opacity .5s .2s}
+.links{list-style:none;counter-reset:l}
+.links li{border-top:1px solid rgba(255,255,255,.13);opacity:0;transform:translateY(-18px);transition:opacity .25s,transform .3s}
+.links li:last-child{border-bottom:1px solid rgba(255,255,255,.13)}
 .links li:nth-child(1){transition-delay:.12s}.links li:nth-child(2){transition-delay:.09s}.links li:nth-child(3){transition-delay:.06s}.links li:nth-child(4){transition-delay:.03s}
-header.menu-open .links li{transition:opacity .5s,transform .5s}
-header:not(.menu-open) .links li{transform:translateY(-18px)}
-header.menu-open .links li{opacity:1;transform:none}
+header.menu-open .links li{opacity:1;transform:none;transition:opacity .55s,transform .6s cubic-bezier(.2,.8,.2,1)}
 header.menu-open .links li:nth-child(1){transition-delay:.25s}
 header.menu-open .links li:nth-child(2){transition-delay:.31s}
 header.menu-open .links li:nth-child(3){transition-delay:.37s}
 header.menu-open .links li:nth-child(4){transition-delay:.43s}
 header.menu-open .links li:nth-child(5){transition-delay:.49s}
-.links a{display:flex;align-items:baseline;gap:1.1rem;text-decoration:none;color:#fff;font-family:var(--serif);font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:600;line-height:1.15;transition:color .25s,transform .25s}
-.links a small{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.1em;color:#ffc4cd;opacity:.8}
-.links a:hover{color:#ffd5dc;transform:translateX(10px)}
-.links a:hover span{font-style:italic}
-.drawer-side{display:grid;gap:18px;justify-items:start;padding-left:40px;border-left:1px solid rgba(255,255,255,.18);opacity:0;transition:opacity .2s}
-header.menu-open .drawer-side{opacity:1;transition:opacity .5s .45s}
-.drawer-status{display:flex;align-items:center;gap:.6rem;font-size:.9rem;background:rgba(255,255,255,.1);padding:.5rem .9rem;border-radius:999px}
-.drawer-line{display:flex;align-items:center;gap:.7rem;color:#fff;text-decoration:none;font-size:1.05rem}
+.links a{position:relative;display:grid;grid-template-columns:44px 1fr auto;align-items:center;padding:.55rem .2rem;text-decoration:none;color:#fff;overflow:hidden}
+.links a::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.09),rgba(255,255,255,0));transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.links a small{font:600 .74rem var(--sans);letter-spacing:.12em;color:#ffc4cd;opacity:.75}
+.links .t{position:relative;font-family:var(--serif);font-size:clamp(2.1rem,4.6vw,3.7rem);font-weight:600;line-height:1.12;transition:transform .45s cubic-bezier(.2,.8,.2,1),color .3s,letter-spacing .45s}
+.links .arr{width:34px;height:34px;color:#ffd5dc;opacity:0;transform:translateX(-18px);transition:.45s cubic-bezier(.2,.8,.2,1)}
+.links a:hover::before,.links a.on::before{transform:scaleX(1)}
+.links a:hover .t,.links a.on .t{transform:translateX(12px);color:#ffd5dc;font-style:italic}
+.links a:hover .arr,.links a.on .arr{opacity:1;transform:none}
+.drawer-side{display:grid;gap:22px;opacity:0;transform:translateX(24px);transition:opacity .2s,transform .3s}
+header.menu-open .drawer-side{opacity:1;transform:none;transition:opacity .6s .4s,transform .8s .4s cubic-bezier(.2,.8,.2,1)}
+.drawer-photo{position:relative;justify-self:center}
+.frame{position:relative;height:min(36vh,330px);aspect-ratio:.92;border-radius:999px 999px 22px 22px;overflow:hidden;background:linear-gradient(160deg,#a3182f,#4a0f19);box-shadow:0 40px 80px -30px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.14);outline:1px solid rgba(255,255,255,.22);outline-offset:10px}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity .6s,transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.frame img.on{opacity:1;transform:scale(1)}
+.seal{position:absolute;width:108px;height:108px;right:-46px;top:34px;filter:drop-shadow(0 12px 20px rgba(0,0,0,.35))}
+.seal text{font:700 9px var(--sans);fill:var(--cherry)}
+.seal text,.seal circle{transform-origin:60px 60px}
+.seal text{animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.drawer-card{display:grid;gap:12px;padding:18px 22px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(6px)}
+.drawer-status{display:flex;align-items:center;gap:.6rem;font-size:.9rem;font-weight:500}
+.drawer-hours{display:flex;flex-direction:column;font-size:.82rem;color:rgba(255,255,255,.7);padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.12)}
+.drawer-hours b{font-variant-numeric:lining-nums;font-family:var(--serif);font-size:1.3rem;font-weight:600;color:#fff;letter-spacing:.02em}
+.drawer-line{display:flex;align-items:center;gap:.75rem;color:#fff;text-decoration:none;font-size:.98rem;transition:color .2s}
 .drawer-line:hover{color:#ffd5dc}
-.drawer-line svg{width:20px;height:20px;color:#ffc4cd}
+.drawer-line svg{width:18px;height:18px;color:#ffc4cd;flex:none}
+.drawer-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .btn-light{background:#fff;color:var(--cherry)}
 .btn-light:hover{background:#ffe9ec}
-.drawer .lang{border-color:rgba(255,255,255,.4)}
-.drawer .lang button{color:#fff;padding:.55rem .9rem;font-size:.85rem}
+.drawer .lang{border-color:rgba(255,255,255,.35)}
+.drawer .lang button{color:#fff;padding:.6rem .85rem;font-size:.8rem}
+.drawer-fb{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;color:#fff;transition:background .2s}
+.drawer-fb:hover{background:rgba(255,255,255,.12)}
+.drawer-fb svg{width:18px;height:18px}
+.drawer-marquee{position:relative;flex:none;overflow:hidden;border-top:1px solid rgba(255,255,255,.1);padding:16px 0;white-space:nowrap;opacity:0;transition:opacity .2s}
+header.menu-open .drawer-marquee{opacity:1;transition:opacity .8s .6s}
+.drawer-marquee div{display:inline-flex;gap:28px;align-items:center;animation:marquee 38s linear infinite;font-family:var(--serif);font-style:italic;font-size:1.5rem;color:rgba(255,255,255,.4)}
+.drawer-marquee i{font-style:normal;font-size:.8rem;color:#ff8fa0}
+@keyframes marquee{to{transform:translateX(-50%)}}
 body.no-scroll{overflow:hidden}
 header.menu-open ~ .mbar{display:none!important}
 .lang{display:flex;border:1px solid rgba(255,255,255,.5);border-radius:999px;overflow:hidden}
@@ -250,8 +283,13 @@ footer.site a:hover{color:#fff}
 
 @media (max-width:960px){
   .nav .btn,.top-lang,.burger-label{display:none}
-  .drawer-inner{grid-template-columns:1fr;gap:36px;align-items:start;padding:104px 0 40px}
-  .drawer-side{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:28px}
+  .drawer-inner{grid-template-columns:1fr;gap:30px;align-items:start;padding:96px 0 28px}
+  .drawer-photo{display:none}
+  .links .t{font-size:clamp(1.9rem,8.5vw,2.6rem)}
+  .links .arr{opacity:.55;transform:none;width:26px;height:26px}
+  .links a{grid-template-columns:36px 1fr auto;padding:.5rem .1rem}
+  .drawer-side{transform:translateY(20px)}
+  .drawer-marquee div{font-size:1.15rem}
   .about,.info{grid-template-columns:1fr;gap:40px}
   .cards,.quotes{grid-template-columns:1fr}
   .menu-groups{columns:1}
@@ -301,24 +339,45 @@ footer.site a:hover{color:#fff}
     </div>
   </div>
   <nav class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-bg" aria-hidden="true"><svg class="drawer-cherry"><use href="#cherry"/></svg></div>
     <div class="wrap drawer-inner">
-      <ul class="links" id="links">
-        <li><a href="#about"><small>01</small><span data-i18n="nav.about">Le restaurant</span></a></li>
-        <li><a href="#menu"><small>02</small><span data-i18n="nav.menu">La carte</span></a></li>
-        <li><a href="#gallery"><small>03</small><span data-i18n="nav.gallery">Photos</span></a></li>
-        <li><a href="#reviews"><small>04</small><span data-i18n="nav.reviews">Avis</span></a></li>
-        <li><a href="#info"><small>05</small><span data-i18n="nav.info">Infos & accès</span></a></li>
-      </ul>
-      <div class="drawer-side">
-        <div class="drawer-status"><span class="status-dot" id="dot3"></span><span id="status3">…</span></div>
-        <a href="tel:+33388478386" class="drawer-line"><svg><use href="#i-phone"/></svg>+33 3 88 47 83 86</a>
-        <a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" target="_blank" rel="noopener" class="drawer-line"><svg><use href="#i-pin"/></svg>13 rue Neuve, Schiltigheim</a>
-        <a class="btn btn-light" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
-        <div class="lang drawer-lang" role="group" aria-label="Langue">
-          <button data-lang="fr" class="on">FR</button><button data-lang="en">EN</button><button data-lang="de">DE</button>
-        </div>
+      <div class="drawer-main">
+        <div class="drawer-eyebrow"><span></span><b data-i18n="nav.explore">Découvrir</b></div>
+        <ul class="links" id="links">
+          <li><a href="#about" data-i="0"><small>01</small><span class="t" data-i18n="nav.about">Le restaurant</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          <li><a href="#menu" data-i="1"><small>02</small><span class="t" data-i18n="nav.menu">La carte</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          <li><a href="#gallery" data-i="2"><small>03</small><span class="t" data-i18n="nav.gallery">Photos</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          <li><a href="#reviews" data-i="3"><small>04</small><span class="t" data-i18n="nav.reviews">Avis</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+          <li><a href="#info" data-i="4"><small>05</small><span class="t" data-i18n="nav.info">Infos & accès</span><svg class="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        </ul>
       </div>
+      <aside class="drawer-side">
+        <div class="drawer-photo">
+          <div class="frame">
+            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/ff7f9ebf-2f78-428a-aa60-9f87bae7df3b.jpg" alt="" class="on" loading="lazy">
+            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/074bfad2-8098-469a-b3f3-ef52d44b248b.jpg" alt="" loading="lazy">
+            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/98346b73-aeb9-4971-aaee-bb8818e61800.jpg" alt="" loading="lazy">
+            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/6a0fee01-a952-450d-9b1d-41ac2105825b.jpg" alt="" loading="lazy">
+            <img src="https://cdn.thefork.com/tf-lab/image/upload/w_900,c_fill,q_auto,f_auto/restaurant/1cd23ee8-12b8-44b9-af1c-58ead0e4c2b6/7d54034c-b264-4084-9c62-0c910d4ffc26.jpg" alt="" loading="lazy">
+          </div>
+          <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="sealPath" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><circle cx="60" cy="60" r="58" fill="#faf5ee"/><text><textPath href="#sealPath" textLength="286" lengthAdjust="spacing">LA CERISE · SCHILTIGHEIM · RESTAURANT ·</textPath></text><use href="#cherry" x="34" y="40" width="52" height="40"/></svg>
+        </div>
+        <div class="drawer-card">
+          <div class="drawer-status"><span class="status-dot" id="dot3"></span><span id="status3">…</span></div>
+          <div class="drawer-hours"><span data-i18n="nav.days">Du mardi au samedi</span><b>11:30 – 14:30 · 18:30 – 22:30</b></div>
+          <a href="tel:+33388478386" class="drawer-line"><svg><use href="#i-phone"/></svg>+33 3 88 47 83 86</a>
+          <a href="https://maps.app.goo.gl/h8tjSW3DBJrBtbdF9" target="_blank" rel="noopener" class="drawer-line"><svg><use href="#i-pin"/></svg>13 rue Neuve, 67300 Schiltigheim</a>
+        </div>
+        <div class="drawer-actions">
+          <a class="btn btn-light" href="https://www.thefork.fr/restaurant/la-cerise-r814532" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg><span data-i18n="cta.bookTable">Réserver une table</span></a>
+          <div class="lang drawer-lang" role="group" aria-label="Langue">
+            <button data-lang="fr" class="on">FR</button><button data-lang="en">EN</button><button data-lang="de">DE</button>
+          </div>
+          <a class="drawer-fb" href="https://facebook.com/la.cerise.restaurant" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+        </div>
+      </aside>
     </div>
+    <div class="drawer-marquee" aria-hidden="true"><div><span>Ribs fondants</span><i>✦</i> <span>Tartes flambées</span><i>✦</i> <span>Vins d'Alsace</span><i>✦</i> <span>Terrasse ombragée</span><i>✦</i> <span>Griottes maison</span><i>✦</i> <span>Accueil chaleureux</span><i>✦</i> <span>Ribs fondants</span><i>✦</i> <span>Tartes flambées</span><i>✦</i> <span>Vins d'Alsace</span><i>✦</i> <span>Terrasse ombragée</span><i>✦</i> <span>Griottes maison</span><i>✦</i> <span>Accueil chaleureux</span><i>✦</i></div></div>
   </nav>
 </header>
 
@@ -475,7 +534,7 @@ footer.site a:hover{color:#fff}
 const I18N = {
   fr: {},
   en: {
-    "nav.about":"The restaurant","nav.menu":"Menu","nav.gallery":"Photos","nav.reviews":"Reviews","nav.info":"Info & directions",
+    "nav.about":"The restaurant","nav.menu":"Menu","nav.gallery":"Photos","nav.reviews":"Reviews","nav.info":"Info & directions","nav.explore":"Explore","nav.days":"Tuesday to Saturday",
     "cta.book":"Book","cta.bookTable":"Book a table","cta.menu":"See the menu","cta.route":"Directions","cta.call":"Call",
     "hero.eyebrow":"Schiltigheim · Next to old Schilick",
     "hero.tag":"Melt-in-your-mouth ribs, crispy tartes flambées and Alsace wines — served with a smile on our shaded terrace.",
@@ -503,7 +562,7 @@ const I18N = {
     "closed":"Closed","days":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"tomorrow":"tomorrow at 11:30"
   },
   de: {
-    "nav.about":"Das Restaurant","nav.menu":"Speisekarte","nav.gallery":"Fotos","nav.reviews":"Bewertungen","nav.info":"Infos & Anfahrt","nav.menuBtn":"Menü",
+    "nav.about":"Das Restaurant","nav.menu":"Speisekarte","nav.gallery":"Fotos","nav.reviews":"Bewertungen","nav.info":"Infos & Anfahrt","nav.menuBtn":"Menü","nav.explore":"Entdecken","nav.days":"Dienstag bis Samstag",
     "cta.book":"Reservieren","cta.bookTable":"Tisch reservieren","cta.menu":"Zur Speisekarte","cta.route":"Route","cta.call":"Anrufen",
     "hero.eyebrow":"Schiltigheim · Nahe dem alten Schilick",
     "hero.tag":"Zarte Spareribs, knusprige Flammkuchen und Elsässer Weine — mit einem Lächeln serviert auf unserer schattigen Terrasse.",
@@ -830,6 +889,13 @@ function setMenu(open){
 }
 burger.onclick = () => setMenu(!header.classList.contains("menu-open"));
 drawer.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+const navLinks = drawer.querySelectorAll(".links a"), navImgs = drawer.querySelectorAll(".frame img");
+function showNav(i){
+  navLinks.forEach((a, j) => a.classList.toggle("on", j === i));
+  navImgs.forEach((im, j) => im.classList.toggle("on", j === i));
+}
+navLinks.forEach((a, i) => { a.addEventListener("mouseenter", () => showNav(i)); a.addEventListener("focus", () => showNav(i)); });
+drawer.querySelector(".links").addEventListener("mouseleave", () => navLinks.forEach(a => a.classList.remove("on")));
 document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
 document.querySelectorAll(".lang button").forEach(b => b.onclick = () => {
   lang = b.dataset.lang; try { localStorage.setItem("lc-lang", lang); } catch(e) {}
